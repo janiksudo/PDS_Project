@@ -126,6 +126,3 @@ dmypy.json
 
 # PyCharm specifics
 /.idea/
-
-# data directory
-/data/
