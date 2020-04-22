@@ -127,6 +127,5 @@ dmypy.json
 # PyCharm specifics
 /.idea/
 
-# I/O formats
-*.csv
-*.pkl
+# data directory
+/data/
