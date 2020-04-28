@@ -126,3 +126,6 @@ dmypy.json
 
 # PyCharm specifics
 /.idea/
+
+# extra für Tim
+.DS_Store
