@@ -39,6 +39,10 @@ class Preprocessor:
                          'p_number', 'p_bike', 'p_lat', 'p_lng']]
         print('Order of columns rearranged.')
 
+        # Drop null values
+        self.raw.dropna(inplace=True)
+        print('Null values dropped.')
+
         # Save cleaned data set as csv in data/preprocessed.
         io.save_df(self.raw, 'bremen_cleaned')
         print('Cleaned data set saved in data/preprocessed as bremen_cleaned.csv.')
