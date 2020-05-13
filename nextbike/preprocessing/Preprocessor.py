@@ -58,6 +58,7 @@ class Preprocessor:
     def _write_trip(self, ping, buffer):
         trip = {'bike': ping['b_number'],
                 'bike_type': ping['b_bike_type'],
+                'identification': ping['p_uid'],
                 'start_time': buffer['datetime'],
                 'end_time': ping['datetime'],
                 'duration_sec': (ping['datetime'] - buffer['datetime']).total_seconds(),
