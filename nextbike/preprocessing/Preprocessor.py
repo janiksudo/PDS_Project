@@ -127,6 +127,10 @@ class Preprocessor:
 
         self._trips = pd.DataFrame.from_records(self._trips)
 
+        # Drop round trips - trips with no differences in both start/end lng and start/end lat
+        self._trips = self._trips[(self._trips['start_lng'] != self._trips['end_lng']) |
+                                  (self._trips['start_lat'] != self._trips['end_lat'])]
+
         # Save trips data set as csv in data/preprocessed.
         io.save_df(self._trips, 'trips')
         print('Trips data set saved in data/processed as trips.csv.')
