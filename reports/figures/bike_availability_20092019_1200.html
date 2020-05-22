@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_118a9bb3843b44c4b5ffb1203c01b2e9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_118a9bb3843b44c4b5ffb1203c01b2e9" ></div>
+        
+</body>
+<script>    
+    
+            var map_118a9bb3843b44c4b5ffb1203c01b2e9 = L.map(
+                "map_118a9bb3843b44c4b5ffb1203c01b2e9",
+                {
+                    center: [53.06703, 8.7641],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 11,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_477e49909f0d408db97e312f742d8003 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+            var circle_dd4a0b87d49e4c61a2079d005350551c = L.circle(
+                [53.076721914667345, 8.803943395614624],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_02062d7080f24129af7af5773f65df49 = L.popup({"maxWidth": 450});
+
+        
+            var html_b54ece1034a7419a8533fabe9418dcfa = $(`<div id="html_b54ece1034a7419a8533fabe9418dcfa" style="width: 100.0%; height: 100.0%;">Stationsname: WESER-KURIER | Pressehaus<br>Station ID: 2351602<br>Bikes available: 1.0<br></div>`)[0];
+            popup_02062d7080f24129af7af5773f65df49.setContent(html_b54ece1034a7419a8533fabe9418dcfa);
+        
+
+        circle_dd4a0b87d49e4c61a2079d005350551c.bindPopup(popup_02062d7080f24129af7af5773f65df49)
+        ;
+
+        
+    
+    
+            var circle_a0768b0c8a974daf95e2eb78e09e408a = L.circle(
+                [53.078194, 8.82325],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_86416f96d6a4463a871f7f57931ad401 = L.popup({"maxWidth": 450});
+
+        
+            var html_3607c39b4f964b788cbebea28a1932ea = $(`<div id="html_3607c39b4f964b788cbebea28a1932ea" style="width: 100.0%; height: 100.0%;">Stationsname: Am Dobben<br>Station ID: 7872668<br>Bikes available: 5.0<br></div>`)[0];
+            popup_86416f96d6a4463a871f7f57931ad401.setContent(html_3607c39b4f964b788cbebea28a1932ea);
+        
+
+        circle_a0768b0c8a974daf95e2eb78e09e408a.bindPopup(popup_86416f96d6a4463a871f7f57931ad401)
+        ;
+
+        
+    
+    
+            var circle_e26262042cbd4b4fb55929b124449459 = L.circle(
+                [53.097556, 8.770056],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_2355c89c430b461ba05d47884bf9f8a9 = L.popup({"maxWidth": 450});
+
+        
+            var html_f7492b56d5004b94b41ac6be67ec3673 = $(`<div id="html_f7492b56d5004b94b41ac6be67ec3673" style="width: 100.0%; height: 100.0%;">Stationsname: Am Speicher XI<br>Station ID: 7872701<br>Bikes available: 1.0<br></div>`)[0];
+            popup_2355c89c430b461ba05d47884bf9f8a9.setContent(html_f7492b56d5004b94b41ac6be67ec3673);
+        
+
+        circle_e26262042cbd4b4fb55929b124449459.bindPopup(popup_2355c89c430b461ba05d47884bf9f8a9)
+        ;
+
+        
+    
+    
+            var circle_b2fcd1a6fd854d519f7f46f4b9c01f4a = L.circle(
+                [53.182889, 8.580278],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_1d53e2642d75411cacb75f66ccefba68 = L.popup({"maxWidth": 450});
+
+        
+            var html_f57fa90577fb45da82ecacd973f5f778 = $(`<div id="html_f57fa90577fb45da82ecacd973f5f778" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Blumenthal<br>Station ID: 7872739<br>Bikes available: 5.0<br></div>`)[0];
+            popup_1d53e2642d75411cacb75f66ccefba68.setContent(html_f57fa90577fb45da82ecacd973f5f778);
+        
+
+        circle_b2fcd1a6fd854d519f7f46f4b9c01f4a.bindPopup(popup_1d53e2642d75411cacb75f66ccefba68)
+        ;
+
+        
+    
+    
+            var circle_cbc911f6b24d4ba9b122ce82ae09b47d = L.circle(
+                [53.205417, 8.517],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_ea9c57e9ee78465e94a90a6163f92bb8 = L.popup({"maxWidth": 450});
+
+        
+            var html_6f02d87ad382443c818d71a491a11ba1 = $(`<div id="html_6f02d87ad382443c818d71a491a11ba1" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Bremen-Farge<br>Station ID: 7872765<br>Bikes available: 0.0<br></div>`)[0];
+            popup_ea9c57e9ee78465e94a90a6163f92bb8.setContent(html_6f02d87ad382443c818d71a491a11ba1);
+        
+
+        circle_cbc911f6b24d4ba9b122ce82ae09b47d.bindPopup(popup_ea9c57e9ee78465e94a90a6163f92bb8)
+        ;
+
+        
+    
+    
+            var circle_47fac94a06f242dd8f2447a381d3f371 = L.circle(
+                [53.040528, 8.944194],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 90.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_3bba1b203ca74ceb90142d95ffbb7336 = L.popup({"maxWidth": 450});
+
+        
+            var html_8812c49b555a47f8a5fcf42934964085 = $(`<div id="html_8812c49b555a47f8a5fcf42934964085" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Mahndorf<br>Station ID: 7872789<br>Bikes available: 2.0<br></div>`)[0];
+            popup_3bba1b203ca74ceb90142d95ffbb7336.setContent(html_8812c49b555a47f8a5fcf42934964085);
+        
+
+        circle_47fac94a06f242dd8f2447a381d3f371.bindPopup(popup_3bba1b203ca74ceb90142d95ffbb7336)
+        ;
+
+        
+    
+    
+            var circle_9c36f0fae7214a36ba1bf00e48333ed1 = L.circle(
+                [53.0625, 8.887222],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_c291c32e583c4c2e9d5184016f4135f1 = L.popup({"maxWidth": 450});
+
+        
+            var html_b564a9d812e0444c9f936fa535297185 = $(`<div id="html_b564a9d812e0444c9f936fa535297185" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Sebaldsbrück<br>Station ID: 7872920<br>Bikes available: 1.0<br></div>`)[0];
+            popup_c291c32e583c4c2e9d5184016f4135f1.setContent(html_b564a9d812e0444c9f936fa535297185);
+        
+
+        circle_9c36f0fae7214a36ba1bf00e48333ed1.bindPopup(popup_c291c32e583c4c2e9d5184016f4135f1)
+        ;
+
+        
+    
+    
+            var circle_ae5487a908be46df9bb2a31916ce767d = L.circle(
+                [53.079667, 8.892528],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 110.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_be84a70df82743db946480b22cc76688 = L.popup({"maxWidth": 450});
+
+        
+            var html_7ced5237b26246a7a39c64a97020cec6 = $(`<div id="html_7ced5237b26246a7a39c64a97020cec6" style="width: 100.0%; height: 100.0%;">Stationsname: Berliner Freiheit<br>Station ID: 7872954<br>Bikes available: 3.0<br></div>`)[0];
+            popup_be84a70df82743db946480b22cc76688.setContent(html_7ced5237b26246a7a39c64a97020cec6);
+        
+
+        circle_ae5487a908be46df9bb2a31916ce767d.bindPopup(popup_be84a70df82743db946480b22cc76688)
+        ;
+
+        
+    
+    
+            var circle_273e6031fe2a46bf931f257bb4c2cf75 = L.circle(
+                [53.08686883633147, 8.783054351806639],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_7b49085a3ffe49eeb3d66f78b833d61f = L.popup({"maxWidth": 450});
+
+        
+            var html_19dddcce3fc242d0a13b090e8d52ba75 = $(`<div id="html_19dddcce3fc242d0a13b090e8d52ba75" style="width: 100.0%; height: 100.0%;">Stationsname: Europahafen / Hansator<br>Station ID: 7872979<br>Bikes available: 1.0<br></div>`)[0];
+            popup_7b49085a3ffe49eeb3d66f78b833d61f.setContent(html_19dddcce3fc242d0a13b090e8d52ba75);
+        
+
+        circle_273e6031fe2a46bf931f257bb4c2cf75.bindPopup(popup_7b49085a3ffe49eeb3d66f78b833d61f)
+        ;
+
+        
+    
+    
+            var circle_3ce5563289e5403e91c069cc87fb556a = L.circle(
+                [53.07459169184832, 8.810182213783262],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 110.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_29772682346a42078a2c0198e56b0430 = L.popup({"maxWidth": 450});
+
+        
+            var html_53a65381ada24dc6aa6637fb51670c0a = $(`<div id="html_53a65381ada24dc6aa6637fb51670c0a" style="width: 100.0%; height: 100.0%;">Stationsname: Domsheide<br>Station ID: 7873007<br>Bikes available: 3.0<br></div>`)[0];
+            popup_29772682346a42078a2c0198e56b0430.setContent(html_53a65381ada24dc6aa6637fb51670c0a);
+        
+
+        circle_3ce5563289e5403e91c069cc87fb556a.bindPopup(popup_29772682346a42078a2c0198e56b0430)
+        ;
+
+        
+    
+    
+            var circle_fc18f0606f4845ac942342af92a6f0ee = L.circle(
+                [53.09160152979527, 8.812183141708374],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_94039da2421d45a5b25cd3c628070a04 = L.popup({"maxWidth": 450});
+
+        
+            var html_2db5c4d42fb14d3da152d14d7071da52 = $(`<div id="html_2db5c4d42fb14d3da152d14d7071da52" style="width: 100.0%; height: 100.0%;">Stationsname: Findorffmarkt<br>Station ID: 7873026<br>Bikes available: 1.0<br></div>`)[0];
+            popup_94039da2421d45a5b25cd3c628070a04.setContent(html_2db5c4d42fb14d3da152d14d7071da52);
+        
+
+        circle_fc18f0606f4845ac942342af92a6f0ee.bindPopup(popup_94039da2421d45a5b25cd3c628070a04)
+        ;
+
+        
+    
+    
+            var circle_6dc66add724d42f2bc195927cf628e20 = L.circle(
+                [53.053111, 8.786056],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_8321fe1886cf49adaaa4cf00f13ce37a = L.popup({"maxWidth": 450});
+
+        
+            var html_e5990704cfdf4e6c879fa2e704a19d6a = $(`<div id="html_e5990704cfdf4e6c879fa2e704a19d6a" style="width: 100.0%; height: 100.0%;">Stationsname: Flughafen Bremen<br>Station ID: 7873056<br>Bikes available: 1.0<br></div>`)[0];
+            popup_8321fe1886cf49adaaa4cf00f13ce37a.setContent(html_e5990704cfdf4e6c879fa2e704a19d6a);
+        
+
+        circle_6dc66add724d42f2bc195927cf628e20.bindPopup(popup_8321fe1886cf49adaaa4cf00f13ce37a)
+        ;
+
+        
+    
+    
+            var circle_7b9bbf1cd38e4515ae6f1cad5c3e42b4 = L.circle(
+                [53.060528, 8.799861],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_8a1f63c33a1c40ccbbf4a31fce1821a8 = L.popup({"maxWidth": 450});
+
+        
+            var html_5efe4c4f42654e6390424557e9323abd = $(`<div id="html_5efe4c4f42654e6390424557e9323abd" style="width: 100.0%; height: 100.0%;">Stationsname: Gottfried-Menken-Str.<br>Station ID: 7873118<br>Bikes available: 1.0<br></div>`)[0];
+            popup_8a1f63c33a1c40ccbbf4a31fce1821a8.setContent(html_5efe4c4f42654e6390424557e9323abd);
+        
+
+        circle_7b9bbf1cd38e4515ae6f1cad5c3e42b4.bindPopup(popup_8a1f63c33a1c40ccbbf4a31fce1821a8)
+        ;
+
+        
+    
+    
+            var circle_16c63a22743b419590180b2c4c0bf9dc = L.circle(
+                [53.03386, 8.83076],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_f9a621464a6f4d34a3c1a59c2d534481 = L.popup({"maxWidth": 450});
+
+        
+            var html_e23aac69e8984faeb2d9dd72caf9f8bd = $(`<div id="html_e23aac69e8984faeb2d9dd72caf9f8bd" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Alfred-Faust-Str.<br>Station ID: 7873131<br>Bikes available: 5.0<br></div>`)[0];
+            popup_f9a621464a6f4d34a3c1a59c2d534481.setContent(html_e23aac69e8984faeb2d9dd72caf9f8bd);
+        
+
+        circle_16c63a22743b419590180b2c4c0bf9dc.bindPopup(popup_f9a621464a6f4d34a3c1a59c2d534481)
+        ;
+
+        
+    
+    
+            var circle_88327cf99e304c9684d5ef3a4be3d017 = L.circle(
+                [53.080333, 8.803083],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_9bcab3c61fb54eefabef5bf129b8d0a3 = L.popup({"maxWidth": 450});
+
+        
+            var html_4b0db664db71463c831c2c38a6a12189 = $(`<div id="html_4b0db664db71463c831c2c38a6a12189" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Am Wall<br>Station ID: 7873146<br>Bikes available: 5.0<br></div>`)[0];
+            popup_9bcab3c61fb54eefabef5bf129b8d0a3.setContent(html_4b0db664db71463c831c2c38a6a12189);
+        
+
+        circle_88327cf99e304c9684d5ef3a4be3d017.bindPopup(popup_9bcab3c61fb54eefabef5bf129b8d0a3)
+        ;
+
+        
+    
+    
+            var circle_115ddb4692e94d79857ea1f163660f66 = L.circle(
+                [53.127139, 8.898528],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_c93f1c8f4a8a4522a08b59c8ea35440c = L.popup({"maxWidth": 450});
+
+        
+            var html_7f66ac702d0d43e48296c59eccd2459f = $(`<div id="html_7f66ac702d0d43e48296c59eccd2459f" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Borgfelder Allee<br>Station ID: 7873169<br>Bikes available: 1.0<br></div>`)[0];
+            popup_c93f1c8f4a8a4522a08b59c8ea35440c.setContent(html_7f66ac702d0d43e48296c59eccd2459f);
+        
+
+        circle_115ddb4692e94d79857ea1f163660f66.bindPopup(popup_c93f1c8f4a8a4522a08b59c8ea35440c)
+        ;
+
+        
+    
+    
+            var circle_685eddd9f83f4e64a2ac65987b09b984 = L.circle(
+                [53.10489796678492, 8.860269784927368],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_f57ab38dc9784bc58675e11cc1b5ead6 = L.popup({"maxWidth": 450});
+
+        
+            var html_f7434e3496e147879e1b05baf9ab1bd4 = $(`<div id="html_f7434e3496e147879e1b05baf9ab1bd4" style="width: 100.0%; height: 100.0%;">Stationsname: Anne Conway / Wohnheim<br>Station ID: 7873189<br>Bikes available: 5.0<br></div>`)[0];
+            popup_f57ab38dc9784bc58675e11cc1b5ead6.setContent(html_f7434e3496e147879e1b05baf9ab1bd4);
+        
+
+        circle_685eddd9f83f4e64a2ac65987b09b984.bindPopup(popup_f57ab38dc9784bc58675e11cc1b5ead6)
+        ;
+
+        
+    
+    
+            var circle_fa8eada4c00e448ba48573037a8380d1 = L.circle(
+                [53.066556, 8.793556],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_4d5f210f8140485395b110c22d362244 = L.popup({"maxWidth": 450});
+
+        
+            var html_5f379d9885e84e7ba7350868af0c19cf = $(`<div id="html_5f379d9885e84e7ba7350868af0c19cf" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Gastfeldstr.<br>Station ID: 7873210<br>Bikes available: 1.0<br></div>`)[0];
+            popup_4d5f210f8140485395b110c22d362244.setContent(html_5f379d9885e84e7ba7350868af0c19cf);
+        
+
+        circle_fa8eada4c00e448ba48573037a8380d1.bindPopup(popup_4d5f210f8140485395b110c22d362244)
+        ;
+
+        
+    
+    
+            var circle_c4e999fdf0e1425982376b7f6b532b30 = L.circle(
+                [53.051800416343205, 8.820728659629822],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_caaa8e673c024257b39af5bd56b67f3d = L.popup({"maxWidth": 450});
+
+        
+            var html_11d744cff72d404b81e72405f01f9536 = $(`<div id="html_11d744cff72d404b81e72405f01f9536" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Huckelriede<br>Station ID: 7873233<br>Bikes available: 1.0<br></div>`)[0];
+            popup_caaa8e673c024257b39af5bd56b67f3d.setContent(html_11d744cff72d404b81e72405f01f9536);
+        
+
+        circle_c4e999fdf0e1425982376b7f6b532b30.bindPopup(popup_caaa8e673c024257b39af5bd56b67f3d)
+        ;
+
+        
+    
+    
+            var circle_c0c8aee4c8814da4a85464dc3e72c407 = L.circle(
+                [53.15816, 8.94525],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_0c831cec0c8348ffab91e5939f4d5275 = L.popup({"maxWidth": 450});
+
+        
+            var html_67b0740a327a4bdf9f3dc5193ce9f161 = $(`<div id="html_67b0740a327a4bdf9f3dc5193ce9f161" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Lilienthal-Falkenberg<br>Station ID: 7873255<br>Bikes available: 1.0<br></div>`)[0];
+            popup_0c831cec0c8348ffab91e5939f4d5275.setContent(html_67b0740a327a4bdf9f3dc5193ce9f161);
+        
+
+        circle_c0c8aee4c8814da4a85464dc3e72c407.bindPopup(popup_0c831cec0c8348ffab91e5939f4d5275)
+        ;
+
+        
+    
+    
+            var circle_9b45e68efca34cb59115536c03943b0d = L.circle(
+                [53.09375, 8.7885],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_dc97c349d3f841498947ed111d6493bc = L.popup({"maxWidth": 450});
+
+        
+            var html_70e7e684c69747d49c5cecd2166e3672 = $(`<div id="html_70e7e684c69747d49c5cecd2166e3672" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Wartburgstraße<br>Station ID: 7873274<br>Bikes available: 5.0<br></div>`)[0];
+            popup_dc97c349d3f841498947ed111d6493bc.setContent(html_70e7e684c69747d49c5cecd2166e3672);
+        
+
+        circle_9b45e68efca34cb59115536c03943b0d.bindPopup(popup_dc97c349d3f841498947ed111d6493bc)
+        ;
+
+        
+    
+    
+            var circle_dbca7db14df84b8390f2447d237f5d38 = L.circle(
+                [53.063444, 8.867889],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_6910afbe444d42fdb15d7bb0da49a05f = L.popup({"maxWidth": 450});
+
+        
+            var html_e5e8ae73794f42aead9a6095ba14cb16 = $(`<div id="html_e5e8ae73794f42aead9a6095ba14cb16" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Weserwehr<br>Station ID: 7873297<br>Bikes available: 5.0<br></div>`)[0];
+            popup_6910afbe444d42fdb15d7bb0da49a05f.setContent(html_e5e8ae73794f42aead9a6095ba14cb16);
+        
+
+        circle_dbca7db14df84b8390f2447d237f5d38.bindPopup(popup_6910afbe444d42fdb15d7bb0da49a05f)
+        ;
+
+        
+    
+    
+            var circle_75c7a37c9b3a4284ac8c38a0446c03c8 = L.circle(
+                [53.083050729527926, 8.811646699905396],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_e4dd4734405e4245b7de4eea2d4c55bc = L.popup({"maxWidth": 450});
+
+        
+            var html_c7d6e443eaf94ed28e4f59df28e014fc = $(`<div id="html_c7d6e443eaf94ed28e4f59df28e014fc" style="width: 100.0%; height: 100.0%;">Stationsname: Hauptbahnhof / Übersee Museum<br>Station ID: 7873316<br>Bikes available: 1.0<br></div>`)[0];
+            popup_e4dd4734405e4245b7de4eea2d4c55bc.setContent(html_c7d6e443eaf94ed28e4f59df28e014fc);
+        
+
+        circle_75c7a37c9b3a4284ac8c38a0446c03c8.bindPopup(popup_e4dd4734405e4245b7de4eea2d4c55bc)
+        ;
+
+        
+    
+    
+            var circle_f96c1cdc8aab4f41aa73f12f18a37b5d = L.circle(
+                [53.16923478992533, 8.628666400909424],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_75768edd7b8d47ea9beff991f35e42cd = L.popup({"maxWidth": 450});
+
+        
+            var html_ba763022d10b43df93f6675a35d4096b = $(`<div id="html_ba763022d10b43df93f6675a35d4096b" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Vegesack<br>Station ID: 7873338<br>Bikes available: 1.0<br></div>`)[0];
+            popup_75768edd7b8d47ea9beff991f35e42cd.setContent(html_ba763022d10b43df93f6675a35d4096b);
+        
+
+        circle_f96c1cdc8aab4f41aa73f12f18a37b5d.bindPopup(popup_75768edd7b8d47ea9beff991f35e42cd)
+        ;
+
+        
+    
+    
+            var circle_8bfc275c1fa543d58700734072ce2341 = L.circle(
+                [53.074278, 8.831167],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_2c9ac93c741d46568512a0c761b54f5e = L.popup({"maxWidth": 450});
+
+        
+            var html_683ff7b62ad648d695d2f970e0167df2 = $(`<div id="html_683ff7b62ad648d695d2f970e0167df2" style="width: 100.0%; height: 100.0%;">Stationsname: Humboldtstr. / Horner Straße<br>Station ID: 7873367<br>Bikes available: 1.0<br></div>`)[0];
+            popup_2c9ac93c741d46568512a0c761b54f5e.setContent(html_683ff7b62ad648d695d2f970e0167df2);
+        
+
+        circle_8bfc275c1fa543d58700734072ce2341.bindPopup(popup_2c9ac93c741d46568512a0c761b54f5e)
+        ;
+
+        
+    
+    
+            var circle_737a4d5b04474422b5e00ee064ba4f2b = L.circle(
+                [53.167639, 8.648306],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_7893831f309847b4a6a7540585bdb6d0 = L.popup({"maxWidth": 450});
+
+        
+            var html_a95d112d47c54441a2f5636f7ed381ea = $(`<div id="html_a95d112d47c54441a2f5636f7ed381ea" style="width: 100.0%; height: 100.0%;">Stationsname: Jacobs University<br>Station ID: 7873421<br>Bikes available: 5.0<br></div>`)[0];
+            popup_7893831f309847b4a6a7540585bdb6d0.setContent(html_a95d112d47c54441a2f5636f7ed381ea);
+        
+
+        circle_737a4d5b04474422b5e00ee064ba4f2b.bindPopup(popup_7893831f309847b4a6a7540585bdb6d0)
+        ;
+
+        
+    
+    
+            var circle_d336a71b25324553aaa6eb8bd69abec9 = L.circle(
+                [53.0415, 8.850111],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_76975ea6ab04480caa0413ef7f01e326 = L.popup({"maxWidth": 450});
+
+        
+            var html_4da06ee97e6345c8a22d2ad221a6ddb4 = $(`<div id="html_4da06ee97e6345c8a22d2ad221a6ddb4" style="width: 100.0%; height: 100.0%;">Stationsname: Karl-Marx-Str. / Ohserstr.<br>Station ID: 7873436<br>Bikes available: 1.0<br></div>`)[0];
+            popup_76975ea6ab04480caa0413ef7f01e326.setContent(html_4da06ee97e6345c8a22d2ad221a6ddb4);
+        
+
+        circle_d336a71b25324553aaa6eb8bd69abec9.bindPopup(popup_76975ea6ab04480caa0413ef7f01e326)
+        ;
+
+        
+    
+    
+            var circle_8f7cc21027af4e3f8df407f456e8704f = L.circle(
+                [53.089444, 8.777833],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 110.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_a0ccea0aeeeb4d63ba3c3488f6982dea = L.popup({"maxWidth": 450});
+
+        
+            var html_fe9491837e274a2986753b30dced7ad0 = $(`<div id="html_fe9491837e274a2986753b30dced7ad0" style="width: 100.0%; height: 100.0%;">Stationsname: Konsul-Smidt-Str.<br>Station ID: 7873462<br>Bikes available: 3.0<br></div>`)[0];
+            popup_a0ccea0aeeeb4d63ba3c3488f6982dea.setContent(html_fe9491837e274a2986753b30dced7ad0);
+        
+
+        circle_8f7cc21027af4e3f8df407f456e8704f.bindPopup(popup_a0ccea0aeeeb4d63ba3c3488f6982dea)
+        ;
+
+        
+    
+    
+            var circle_6938c2a715814243879389ab8d668227 = L.circle(
+                [53.068565, 8.785476],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_a866b8bfe8ca4027838c29845541fe7d = L.popup({"maxWidth": 450});
+
+        
+            var html_3b4bd88211134f72ace7a99441314837 = $(`<div id="html_3b4bd88211134f72ace7a99441314837" style="width: 100.0%; height: 100.0%;">Stationsname: Langemarckstr. / Erlenstr.<br>Station ID: 7873483<br>Bikes available: 1.0<br></div>`)[0];
+            popup_a866b8bfe8ca4027838c29845541fe7d.setContent(html_3b4bd88211134f72ace7a99441314837);
+        
+
+        circle_6938c2a715814243879389ab8d668227.bindPopup(popup_a866b8bfe8ca4027838c29845541fe7d)
+        ;
+
+        
+    
+    
+            var circle_ac24271cb8ce41379cd4a68827ab4fa7 = L.circle(
+                [53.090176, 8.935391],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_d749e05bccf640b2b2860f203550b8d9 = L.popup({"maxWidth": 450});
+
+        
+            var html_fed854a9e9754d2a88bd42571a4dc2ef = $(`<div id="html_fed854a9e9754d2a88bd42571a4dc2ef" style="width: 100.0%; height: 100.0%;">Stationsname: Mühlenfeldstr. / Rockwinkeler Heerstr.<br>Station ID: 7873594<br>Bikes available: 1.0<br></div>`)[0];
+            popup_d749e05bccf640b2b2860f203550b8d9.setContent(html_fed854a9e9754d2a88bd42571a4dc2ef);
+        
+
+        circle_ac24271cb8ce41379cd4a68827ab4fa7.bindPopup(popup_d749e05bccf640b2b2860f203550b8d9)
+        ;
+
+        
+    
+    
+            var circle_a16a1f541b8f4619b38a2916fe3bc5cb = L.circle(
+                [53.071972, 8.794222],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_b80b35352081446c8a5f99e591ea80ac = L.popup({"maxWidth": 450});
+
+        
+            var html_11c9f1fbbd9e453891d30f25720bdd7c = $(`<div id="html_11c9f1fbbd9e453891d30f25720bdd7c" style="width: 100.0%; height: 100.0%;">Stationsname: Neustadtswall <br>Station ID: 7873621<br>Bikes available: 1.0<br></div>`)[0];
+            popup_b80b35352081446c8a5f99e591ea80ac.setContent(html_11c9f1fbbd9e453891d30f25720bdd7c);
+        
+
+        circle_a16a1f541b8f4619b38a2916fe3bc5cb.bindPopup(popup_b80b35352081446c8a5f99e591ea80ac)
+        ;
+
+        
+    
+    
+            var circle_2ef476276a0940d28994930bc7583ad4 = L.circle(
+                [53.100167, 8.902889],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_c2645ada7b7b42c0803070b802902dd4 = L.popup({"maxWidth": 450});
+
+        
+            var html_e4b298238502442db831d013ccc7189b = $(`<div id="html_e4b298238502442db831d013ccc7189b" style="width: 100.0%; height: 100.0%;">Stationsname: Oberneulander Heerstr. / Rockwinkeler Heerstr.<br>Station ID: 7873641<br>Bikes available: 1.0<br></div>`)[0];
+            popup_c2645ada7b7b42c0803070b802902dd4.setContent(html_e4b298238502442db831d013ccc7189b);
+        
+
+        circle_2ef476276a0940d28994930bc7583ad4.bindPopup(popup_c2645ada7b7b42c0803070b802902dd4)
+        ;
+
+        
+    
+    
+            var circle_b2c40a22feca4838a02b461b08e37320 = L.circle(
+                [53.07734388117915, 8.814758062362671],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_82e6bde589d649cc834ee707db2d710e = L.popup({"maxWidth": 450});
+
+        
+            var html_061212fc2f6d4dc3bd3a1322868974dd = $(`<div id="html_061212fc2f6d4dc3bd3a1322868974dd" style="width: 100.0%; height: 100.0%;">Stationsname: Präsident-Kennedy-Platz<br>Station ID: 7873660<br>Bikes available: 1.0<br></div>`)[0];
+            popup_82e6bde589d649cc834ee707db2d710e.setContent(html_061212fc2f6d4dc3bd3a1322868974dd);
+        
+
+        circle_b2c40a22feca4838a02b461b08e37320.bindPopup(popup_82e6bde589d649cc834ee707db2d710e)
+        ;
+
+        
+    
+    
+            var circle_79f0251c1971482290090b424abab76b = L.circle(
+                [53.08125, 8.772694],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_fe2be6e241374ccfa3bdd62b84e4ab92 = L.popup({"maxWidth": 450});
+
+        
+            var html_f730f35bf7384102bf571f08b5c544ac = $(`<div id="html_f730f35bf7384102bf571f08b5c544ac" style="width: 100.0%; height: 100.0%;">Stationsname: Pusdorfer Marktplatz<br>Station ID: 7873706<br>Bikes available: 5.0<br></div>`)[0];
+            popup_fe2be6e241374ccfa3bdd62b84e4ab92.setContent(html_f730f35bf7384102bf571f08b5c544ac);
+        
+
+        circle_79f0251c1971482290090b424abab76b.bindPopup(popup_fe2be6e241374ccfa3bdd62b84e4ab92)
+        ;
+
+        
+    
+    
+            var circle_76b1b7eb66d5478fa48efc1b20d0e90a = L.circle(
+                [53.06994737632387, 8.808073997497559],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_c51caac79a314dc5b4c4afff22ae1c43 = L.popup({"maxWidth": 450});
+
+        
+            var html_6ce0d5d15e554bf4b28d4e5074a61b8d = $(`<div id="html_6ce0d5d15e554bf4b28d4e5074a61b8d" style="width: 100.0%; height: 100.0%;">Stationsname: Hochschule Bremen Werderstrasse<br>Station ID: 7873766<br>Bikes available: 5.0<br></div>`)[0];
+            popup_c51caac79a314dc5b4c4afff22ae1c43.setContent(html_6ce0d5d15e554bf4b28d4e5074a61b8d);
+        
+
+        circle_76b1b7eb66d5478fa48efc1b20d0e90a.bindPopup(popup_c51caac79a314dc5b4c4afff22ae1c43)
+        ;
+
+        
+    
+    
+            var circle_4c2e1144919a45508f47a8da3155c574 = L.circle(
+                [53.085, 8.849472],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_287c47a78994443eba9477c67827cb45 = L.popup({"maxWidth": 450});
+
+        
+            var html_7f1fa70a91a64965af36114506f8c55f = $(`<div id="html_7f1fa70a91a64965af36114506f8c55f" style="width: 100.0%; height: 100.0%;">Stationsname: Schwachhauser Heerstr. / Kirchbachstr.  <br>Station ID: 7873781<br>Bikes available: 5.0<br></div>`)[0];
+            popup_287c47a78994443eba9477c67827cb45.setContent(html_7f1fa70a91a64965af36114506f8c55f);
+        
+
+        circle_4c2e1144919a45508f47a8da3155c574.bindPopup(popup_287c47a78994443eba9477c67827cb45)
+        ;
+
+        
+    
+    
+            var circle_57b85897de3b4c3a8644bda918baf4aa = L.circle(
+                [53.069444, 8.799638999999999],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_5da12c7251564830aa0c6a9d14506cbc = L.popup({"maxWidth": 450});
+
+        
+            var html_85c23869026b49c2a2a5dfda70832ed0 = $(`<div id="html_85c23869026b49c2a2a5dfda70832ed0" style="width: 100.0%; height: 100.0%;">Stationsname: Theater am Leibnizplatz<br>Station ID: 7873805<br>Bikes available: 1.0<br></div>`)[0];
+            popup_5da12c7251564830aa0c6a9d14506cbc.setContent(html_85c23869026b49c2a2a5dfda70832ed0);
+        
+
+        circle_57b85897de3b4c3a8644bda918baf4aa.bindPopup(popup_5da12c7251564830aa0c6a9d14506cbc)
+        ;
+
+        
+    
+    
+            var circle_fa2e3f43cc914fef82850c3c8831cdc7 = L.circle(
+                [53.107139, 8.852416999999999],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 90.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_dba686dbfaa1451f868aa29634753a31 = L.popup({"maxWidth": 450});
+
+        
+            var html_2c3f849ebd2447d1b428934535100566 = $(`<div id="html_2c3f849ebd2447d1b428934535100566" style="width: 100.0%; height: 100.0%;">Stationsname: Uni Bremen<br>Station ID: 7873825<br>Bikes available: 2.0<br></div>`)[0];
+            popup_dba686dbfaa1451f868aa29634753a31.setContent(html_2c3f849ebd2447d1b428934535100566);
+        
+
+        circle_fa2e3f43cc914fef82850c3c8831cdc7.bindPopup(popup_dba686dbfaa1451f868aa29634753a31)
+        ;
+
+        
+    
+    
+            var circle_2003113eccda470aac014cd71da4e71f = L.circle(
+                [53.106418034025026, 8.84574294090271],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 90.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_ca4a6526be124385a695d32121d91c45 = L.popup({"maxWidth": 450});
+
+        
+            var html_e188b76fe631464e8c019a3addd16b54 = $(`<div id="html_e188b76fe631464e8c019a3addd16b54" style="width: 100.0%; height: 100.0%;">Stationsname: Universum Bremen<br>Station ID: 7873840<br>Bikes available: 2.0<br></div>`)[0];
+            popup_ca4a6526be124385a695d32121d91c45.setContent(html_e188b76fe631464e8c019a3addd16b54);
+        
+
+        circle_2003113eccda470aac014cd71da4e71f.bindPopup(popup_ca4a6526be124385a695d32121d91c45)
+        ;
+
+        
+    
+    
+            var circle_d28ac41be7704b40900c0cda7e8ffa1c = L.circle(
+                [53.086139, 8.831583],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_92589b93c4d447a4bddc02c36a207e65 = L.popup({"maxWidth": 450});
+
+        
+            var html_6d70086830b94a95844cc3cca71207e6 = $(`<div id="html_6d70086830b94a95844cc3cca71207e6" style="width: 100.0%; height: 100.0%;">Stationsname: Wachmannstr. / Hartwigstr.<br>Station ID: 7873874<br>Bikes available: 1.0<br></div>`)[0];
+            popup_92589b93c4d447a4bddc02c36a207e65.setContent(html_6d70086830b94a95844cc3cca71207e6);
+        
+
+        circle_d28ac41be7704b40900c0cda7e8ffa1c.bindPopup(popup_92589b93c4d447a4bddc02c36a207e65)
+        ;
+
+        
+    
+    
+            var circle_fef4225bd8474135aaf3beaf8d5720b2 = L.circle(
+                [53.07851366949974, 8.779175877571106],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 110.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_3ad24bf34c9e4aee94de970e6a34ad0d = L.popup({"maxWidth": 450});
+
+        
+            var html_642e56e69ced4259ba9d3ffc5148e167 = $(`<div id="html_642e56e69ced4259ba9d3ffc5148e167" style="width: 100.0%; height: 100.0%;">Stationsname: Woltmershauser Str.<br>Station ID: 7873893<br>Bikes available: 3.0<br></div>`)[0];
+            popup_3ad24bf34c9e4aee94de970e6a34ad0d.setContent(html_642e56e69ced4259ba9d3ffc5148e167);
+        
+
+        circle_fef4225bd8474135aaf3beaf8d5720b2.bindPopup(popup_3ad24bf34c9e4aee94de970e6a34ad0d)
+        ;
+
+        
+    
+    
+            var circle_561cc11ebf7049c0bef07805cbaa9244 = L.circle(
+                [53.061139, 8.786306],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_215f0f725d3549188e424674ca6153e5 = L.popup({"maxWidth": 450});
+
+        
+            var html_46858d1afcbf4b9d888f3cd192c09a62 = $(`<div id="html_46858d1afcbf4b9d888f3cd192c09a62" style="width: 100.0%; height: 100.0%;">Stationsname: BSAG-Zentrum<br>Station ID: 8028225<br>Bikes available: 1.0<br></div>`)[0];
+            popup_215f0f725d3549188e424674ca6153e5.setContent(html_46858d1afcbf4b9d888f3cd192c09a62);
+        
+
+        circle_561cc11ebf7049c0bef07805cbaa9244.bindPopup(popup_215f0f725d3549188e424674ca6153e5)
+        ;
+
+        
+    
+    
+            var circle_d1bb81740d1f41d7971e082f2cf103cb = L.circle(
+                [53.07283522613672, 8.814103603363037],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_f109f053816b4da490c092a821ebb7dd = L.popup({"maxWidth": 450});
+
+        
+            var html_b2d8a1a84fd3433087302cd85c104c48 = $(`<div id="html_b2d8a1a84fd3433087302cd85c104c48" style="width: 100.0%; height: 100.0%;">Stationsname: Kunsthalle Bremen<br>Station ID: 8172362<br>Bikes available: 1.0<br></div>`)[0];
+            popup_f109f053816b4da490c092a821ebb7dd.setContent(html_b2d8a1a84fd3433087302cd85c104c48);
+        
+
+        circle_d1bb81740d1f41d7971e082f2cf103cb.bindPopup(popup_f109f053816b4da490c092a821ebb7dd)
+        ;
+
+        
+    
+    
+            var circle_831a18df4b2f464d91c86c427bd44a37 = L.circle(
+                [53.067800701770445, 8.834928274154661],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_078fa52a62af456e83f87bc8e1e71a27 = L.popup({"maxWidth": 450});
+
+        
+            var html_0963cb2b70f14e12b1611200cc7ccad7 = $(`<div id="html_0963cb2b70f14e12b1611200cc7ccad7" style="width: 100.0%; height: 100.0%;">Stationsname: Weser-Stadion <br>Station ID: 8322249<br>Bikes available: 1.0<br></div>`)[0];
+            popup_078fa52a62af456e83f87bc8e1e71a27.setContent(html_0963cb2b70f14e12b1611200cc7ccad7);
+        
+
+        circle_831a18df4b2f464d91c86c427bd44a37.bindPopup(popup_078fa52a62af456e83f87bc8e1e71a27)
+        ;
+
+        
+    
+    
+            var circle_517c3ef80d0a47769a73669582aa7351 = L.circle(
+                [53.074143719326536, 8.8045334815979],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_d698cd64824545089ebfddd67b731661 = L.popup({"maxWidth": 450});
+
+        
+            var html_f929a6dff73b422fb2eac11e087ec31c = $(`<div id="html_f929a6dff73b422fb2eac11e087ec31c" style="width: 100.0%; height: 100.0%;">Stationsname: Martinianleger<br>Station ID: 8322336<br>Bikes available: 1.0<br></div>`)[0];
+            popup_d698cd64824545089ebfddd67b731661.setContent(html_f929a6dff73b422fb2eac11e087ec31c);
+        
+
+        circle_517c3ef80d0a47769a73669582aa7351.bindPopup(popup_d698cd64824545089ebfddd67b731661)
+        ;
+
+        
+    
+    
+            var circle_8889987353b74df9aa9f2ff951216028 = L.circle(
+                [53.0969747127721, 8.760695457458496],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_80e65d4b96dd4e46a385c364ec634cf9 = L.popup({"maxWidth": 450});
+
+        
+            var html_d04a19cd2669457fa63e21035a26127e = $(`<div id="html_d04a19cd2669457fa63e21035a26127e" style="width: 100.0%; height: 100.0%;">Stationsname: Landmark-Tower<br>Station ID: 8322400<br>Bikes available: 1.0<br></div>`)[0];
+            popup_80e65d4b96dd4e46a385c364ec634cf9.setContent(html_d04a19cd2669457fa63e21035a26127e);
+        
+
+        circle_8889987353b74df9aa9f2ff951216028.bindPopup(popup_80e65d4b96dd4e46a385c364ec634cf9)
+        ;
+
+        
+    
+    
+            var circle_31230ad4e10c49f285d54a342f0bdae2 = L.circle(
+                [53.07741155574982, 8.77284049987793],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_ffbca2ad415e4c5d988acd70dadcdee1 = L.popup({"maxWidth": 450});
+
+        
+            var html_ea3df748a36a46c4b9bd8cc65704fe3d = $(`<div id="html_ea3df748a36a46c4b9bd8cc65704fe3d" style="width: 100.0%; height: 100.0%;">Stationsname: Tabak Quartier<br>Station ID: 8322444<br>Bikes available: 1.0<br></div>`)[0];
+            popup_ffbca2ad415e4c5d988acd70dadcdee1.setContent(html_ea3df748a36a46c4b9bd8cc65704fe3d);
+        
+
+        circle_31230ad4e10c49f285d54a342f0bdae2.bindPopup(popup_ffbca2ad415e4c5d988acd70dadcdee1)
+        ;
+
+        
+    
+    
+            var circle_47f5d8f81ed54df8bc4b2495d4487de0 = L.circle(
+                [53.145798, 8.909947],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_058f710006c7411f8d9cf3d8f563f773 = L.popup({"maxWidth": 450});
+
+        
+            var html_8ac763a2d1e14a0c80341fb5aab07bda = $(`<div id="html_8ac763a2d1e14a0c80341fb5aab07bda" style="width: 100.0%; height: 100.0%;">Stationsname: Wümme-Zeitung<br>Station ID: 8615035<br>Bikes available: 5.0<br></div>`)[0];
+            popup_058f710006c7411f8d9cf3d8f563f773.setContent(html_8ac763a2d1e14a0c80341fb5aab07bda);
+        
+
+        circle_47f5d8f81ed54df8bc4b2495d4487de0.bindPopup(popup_058f710006c7411f8d9cf3d8f563f773)
+        ;
+
+        
+    
+    
+            var circle_cdb5f195a77b4f16b55c44e5c7f1fe70 = L.circle(
+                [53.064904, 8.879091],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_f6b2c04235194934b5406593d17fb5d5 = L.popup({"maxWidth": 450});
+
+        
+            var html_9c18ca7e06224a549bff3f8a3a6778c0 = $(`<div id="html_9c18ca7e06224a549bff3f8a3a6778c0" style="width: 100.0%; height: 100.0%;">Stationsname: Föhrenstraße <br>Station ID: 8638942<br>Bikes available: 1.0<br></div>`)[0];
+            popup_f6b2c04235194934b5406593d17fb5d5.setContent(html_9c18ca7e06224a549bff3f8a3a6778c0);
+        
+
+        circle_cdb5f195a77b4f16b55c44e5c7f1fe70.bindPopup(popup_f6b2c04235194934b5406593d17fb5d5)
+        ;
+
+        
+    
+    
+            var circle_2feb499ccf734351b8b8afb9799f1a11 = L.circle(
+                [53.0926028710585, 8.803163808552199],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_6761b87bd645425a93c371682cd06f8e = L.popup({"maxWidth": 450});
+
+        
+            var html_0981aa60795a4ba080f625d810b4b165 = $(`<div id="html_0981aa60795a4ba080f625d810b4b165" style="width: 100.0%; height: 100.0%;">Stationsname: Admiralstrasse<br>Station ID: 8638959<br>Bikes available: 1.0<br></div>`)[0];
+            popup_6761b87bd645425a93c371682cd06f8e.setContent(html_0981aa60795a4ba080f625d810b4b165);
+        
+
+        circle_2feb499ccf734351b8b8afb9799f1a11.bindPopup(popup_6761b87bd645425a93c371682cd06f8e)
+        ;
+
+        
+    
+    
+            var circle_db1df86f58ed4a3385c585fd727d57d9 = L.circle(
+                [53.068642, 8.822093],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_9b66c726552a4171b4998a6511787af5 = L.popup({"maxWidth": 450});
+
+        
+            var html_3ec70dd44deb45c28d4d391fe487b6b0 = $(`<div id="html_3ec70dd44deb45c28d4d391fe487b6b0" style="width: 100.0%; height: 100.0%;">Stationsname: Sielwallfähre<br>Station ID: 8638975<br>Bikes available: 1.0<br></div>`)[0];
+            popup_9b66c726552a4171b4998a6511787af5.setContent(html_3ec70dd44deb45c28d4d391fe487b6b0);
+        
+
+        circle_db1df86f58ed4a3385c585fd727d57d9.bindPopup(popup_9b66c726552a4171b4998a6511787af5)
+        ;
+
+        
+    
+    
+            var circle_1b4fe32c951848c0bc793a940cc4aab4 = L.circle(
+                [53.048501613563865, 8.820669651031494],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 90.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_8a4c807a682f4303a57bd7197795e72b = L.popup({"maxWidth": 450});
+
+        
+            var html_cedc630725994f3aa28da2ae4cabc126 = $(`<div id="html_cedc630725994f3aa28da2ae4cabc126" style="width: 100.0%; height: 100.0%;">Stationsname: P und R Sielhof<br>Station ID: 8740854<br>Bikes available: 2.0<br></div>`)[0];
+            popup_8a4c807a682f4303a57bd7197795e72b.setContent(html_cedc630725994f3aa28da2ae4cabc126);
+        
+
+        circle_1b4fe32c951848c0bc793a940cc4aab4.bindPopup(popup_8a4c807a682f4303a57bd7197795e72b)
+        ;
+
+        
+    
+    
+            var circle_68279ec89f32447dabe17a37ef217f5b = L.circle(
+                [53.08904999933958, 8.8222736120224],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_90975df1f76349a9a61758701eb8db55 = L.popup({"maxWidth": 450});
+
+        
+            var html_d020cf57c2d3424382fb0c39dceb2c8f = $(`<div id="html_d020cf57c2d3424382fb0c39dceb2c8f" style="width: 100.0%; height: 100.0%;">Stationsname: Park Hotel<br>Station ID: 8806546<br>Bikes available: 1.0<br></div>`)[0];
+            popup_90975df1f76349a9a61758701eb8db55.setContent(html_d020cf57c2d3424382fb0c39dceb2c8f);
+        
+
+        circle_68279ec89f32447dabe17a37ef217f5b.bindPopup(popup_90975df1f76349a9a61758701eb8db55)
+        ;
+
+        
+    
+    
+            var circle_0a97a7fed25c468c99715b818d671b5f = L.circle(
+                [53.08203573276256, 8.789475560188293],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 130.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_e1151891e89f4e6299a9f752abffde1d = L.popup({"maxWidth": 450});
+
+        
+            var html_845b4799848c4ab18a2d5c1dedd4d555 = $(`<div id="html_845b4799848c4ab18a2d5c1dedd4d555" style="width: 100.0%; height: 100.0%;">Stationsname: GOP / Steigenberger<br>Station ID: 8806578<br>Bikes available: 4.0<br></div>`)[0];
+            popup_e1151891e89f4e6299a9f752abffde1d.setContent(html_845b4799848c4ab18a2d5c1dedd4d555);
+        
+
+        circle_0a97a7fed25c468c99715b818d671b5f.bindPopup(popup_e1151891e89f4e6299a9f752abffde1d)
+        ;
+
+        
+    
+    
+            var circle_dc83ef9d60e54e4c878efae11121f178 = L.circle(
+                [53.019181, 8.871278],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_dc8e84b77213437d8297c4654319238f = L.popup({"maxWidth": 450});
+
+        
+            var html_4818bbb1aeef4d4db6a8a5358c0d0b3a = $(`<div id="html_4818bbb1aeef4d4db6a8a5358c0d0b3a" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Dreye<br>Station ID: 8903474<br>Bikes available: 1.0<br></div>`)[0];
+            popup_dc8e84b77213437d8297c4654319238f.setContent(html_4818bbb1aeef4d4db6a8a5358c0d0b3a);
+        
+
+        circle_dc83ef9d60e54e4c878efae11121f178.bindPopup(popup_dc8e84b77213437d8297c4654319238f)
+        ;
+
+        
+    
+    
+            var circle_fb83d165f6494dfabffa8eb0e63f32b5 = L.circle(
+                [52.983452, 8.847211],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_0886ea4752b54845a75ff55dffc516ca = L.popup({"maxWidth": 450});
+
+        
+            var html_236b1e8ce32c480186cf594314f70d79 = $(`<div id="html_236b1e8ce32c480186cf594314f70d79" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Kirchweyhe<br>Station ID: 8903502<br>Bikes available: 0.0<br></div>`)[0];
+            popup_0886ea4752b54845a75ff55dffc516ca.setContent(html_236b1e8ce32c480186cf594314f70d79);
+        
+
+        circle_fb83d165f6494dfabffa8eb0e63f32b5.bindPopup(popup_0886ea4752b54845a75ff55dffc516ca)
+        ;
+
+        
+    
+    
+            var circle_8fba5c9e9d184dc4aa57252cd7839179 = L.circle(
+                [52.979305, 8.862633],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_4f7b6f46ccf744879f40c306fb8097e1 = L.popup({"maxWidth": 450});
+
+        
+            var html_891a74cacf3846a9bcc02f7f79a2b0fb = $(`<div id="html_891a74cacf3846a9bcc02f7f79a2b0fb" style="width: 100.0%; height: 100.0%;">Stationsname: Freibad Weyhe<br>Station ID: 8903533<br>Bikes available: 0.0<br></div>`)[0];
+            popup_4f7b6f46ccf744879f40c306fb8097e1.setContent(html_891a74cacf3846a9bcc02f7f79a2b0fb);
+        
+
+        circle_8fba5c9e9d184dc4aa57252cd7839179.bindPopup(popup_4f7b6f46ccf744879f40c306fb8097e1)
+        ;
+
+        
+    
+    
+            var circle_250e57949c8a4e5dbc4256adc25c1c7c = L.circle(
+                [53.018578, 8.863607],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_125f5e782e824f16a6cf6a572d3971ec = L.popup({"maxWidth": 450});
+
+        
+            var html_65b9c7a9f67d4f60a919100e4b9eed02 = $(`<div id="html_65b9c7a9f67d4f60a919100e4b9eed02" style="width: 100.0%; height: 100.0%;">Stationsname: Gewerbegebiet Dreye-West III<br>Station ID: 8903564<br>Bikes available: 0.0<br></div>`)[0];
+            popup_125f5e782e824f16a6cf6a572d3971ec.setContent(html_65b9c7a9f67d4f60a919100e4b9eed02);
+        
+
+        circle_250e57949c8a4e5dbc4256adc25c1c7c.bindPopup(popup_125f5e782e824f16a6cf6a572d3971ec)
+        ;
+
+        
+    
+    
+            var circle_6ddda96f8b5a45af8a4f05974d15f2bc = L.circle(
+                [52.988059, 8.816312],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_1f0b4e96e8f4423ab88fffc7d5ed0cde = L.popup({"maxWidth": 450});
+
+        
+            var html_124729e7f2b14a9387d881c187acb1cc = $(`<div id="html_124729e7f2b14a9387d881c187acb1cc" style="width: 100.0%; height: 100.0%;">Stationsname: Henry-Wetjen-Platz<br>Station ID: 8903622<br>Bikes available: 0.0<br></div>`)[0];
+            popup_1f0b4e96e8f4423ab88fffc7d5ed0cde.setContent(html_124729e7f2b14a9387d881c187acb1cc);
+        
+
+        circle_6ddda96f8b5a45af8a4f05974d15f2bc.bindPopup(popup_1f0b4e96e8f4423ab88fffc7d5ed0cde)
+        ;
+
+        
+    
+    
+            var circle_cc23e57bb88e436c82967e74f4b86029 = L.circle(
+                [52.982181, 8.850017],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_201a48f9d2904384a34d0c4966b37969 = L.popup({"maxWidth": 450});
+
+        
+            var html_7adfc4d6b7b94919ac9a069ccb5614bf = $(`<div id="html_7adfc4d6b7b94919ac9a069ccb5614bf" style="width: 100.0%; height: 100.0%;">Stationsname: Marktplatz Kirchweyhe<br>Station ID: 8903645<br>Bikes available: 0.0<br></div>`)[0];
+            popup_201a48f9d2904384a34d0c4966b37969.setContent(html_7adfc4d6b7b94919ac9a069ccb5614bf);
+        
+
+        circle_cc23e57bb88e436c82967e74f4b86029.bindPopup(popup_201a48f9d2904384a34d0c4966b37969)
+        ;
+
+        
+    
+    
+            var circle_9f071682ea324bf39d7a09bd7e3d2ebb = L.circle(
+                [52.983784, 8.835151],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_67c107d356de4381b1a9bbb51f0152cd = L.popup({"maxWidth": 450});
+
+        
+            var html_88430c98bd6c43c19bea2c968f81fb3c = $(`<div id="html_88430c98bd6c43c19bea2c968f81fb3c" style="width: 100.0%; height: 100.0%;">Stationsname: Rathaus Weyhe<br>Station ID: 8903658<br>Bikes available: 0.0<br></div>`)[0];
+            popup_67c107d356de4381b1a9bbb51f0152cd.setContent(html_88430c98bd6c43c19bea2c968f81fb3c);
+        
+
+        circle_9f071682ea324bf39d7a09bd7e3d2ebb.bindPopup(popup_67c107d356de4381b1a9bbb51f0152cd)
+        ;
+
+        
+    
+    
+            var circle_1b65b0776f104a689171de0c1db3ebe1 = L.circle(
+                [53.107500083055875, 8.762133121490477],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_5a28d28501fb415d8b9bb17a2aaff588 = L.popup({"maxWidth": 450});
+
+        
+            var html_8ef84313ceea416f88f83324f708e069 = $(`<div id="html_8ef84313ceea416f88f83324f708e069" style="width: 100.0%; height: 100.0%;">Stationsname: KAEFER Isoliertechnik<br>Station ID: 8926613<br>Bikes available: 5.0<br></div>`)[0];
+            popup_5a28d28501fb415d8b9bb17a2aaff588.setContent(html_8ef84313ceea416f88f83324f708e069);
+        
+
+        circle_1b65b0776f104a689171de0c1db3ebe1.bindPopup(popup_5a28d28501fb415d8b9bb17a2aaff588)
+        ;
+
+        
+    
+    
+            var circle_6ee8af15e14043519f919582bffd07b3 = L.circle(
+                [53.109129546001896, 8.860495090484617],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_d95af68ff2954d36adcd6463483a006f = L.popup({"maxWidth": 450});
+
+        
+            var html_9415868f94404f07a59c725e781e5924 = $(`<div id="html_9415868f94404f07a59c725e781e5924" style="width: 100.0%; height: 100.0%;">Stationsname: Uni Bremen TAB<br>Station ID: 10084718<br>Bikes available: 1.0<br></div>`)[0];
+            popup_d95af68ff2954d36adcd6463483a006f.setContent(html_9415868f94404f07a59c725e781e5924);
+        
+
+        circle_6ee8af15e14043519f919582bffd07b3.bindPopup(popup_d95af68ff2954d36adcd6463483a006f)
+        ;
+
+        
+    
+    
+            var circle_bb2d1deeff8d4557ba68fa11b17c370f = L.circle(
+                [53.078923, 8.884911],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_344383927c8b4c03b89b913d968099d4 = L.popup({"maxWidth": 450});
+
+        
+            var html_34038fd3a7064ce887fbbc8aa0f070a7 = $(`<div id="html_34038fd3a7064ce887fbbc8aa0f070a7" style="width: 100.0%; height: 100.0%;">Stationsname: GEWOBA | Kurt-Schumacher 11<br>Station ID: 10278649<br>Bikes available: 5.0<br></div>`)[0];
+            popup_344383927c8b4c03b89b913d968099d4.setContent(html_34038fd3a7064ce887fbbc8aa0f070a7);
+        
+
+        circle_bb2d1deeff8d4557ba68fa11b17c370f.bindPopup(popup_344383927c8b4c03b89b913d968099d4)
+        ;
+
+        
+    
+    
+            var circle_91aca25aed914c85a8c07e8a5ae85cf3 = L.circle(
+                [53.083369723568474, 8.899649977684021],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_a7f72824fc17435692706542536ced1d = L.popup({"maxWidth": 450});
+
+        
+            var html_431374dc2721493ca63ead273600b0df = $(`<div id="html_431374dc2721493ca63ead273600b0df" style="width: 100.0%; height: 100.0%;">Stationsname: GEWOBA | Heinrich-Schulz 57<br>Station ID: 10278671<br>Bikes available: 1.0<br></div>`)[0];
+            popup_a7f72824fc17435692706542536ced1d.setContent(html_431374dc2721493ca63ead273600b0df);
+        
+
+        circle_91aca25aed914c85a8c07e8a5ae85cf3.bindPopup(popup_a7f72824fc17435692706542536ced1d)
+        ;
+
+        
+    
+    
+            var circle_ca440199c1564c64a89db943a2b7199b = L.circle(
+                [53.085032320903416, 8.879125714302063],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_3d86282b33794ab18061bdf91010b42e = L.popup({"maxWidth": 450});
+
+        
+            var html_6e00f6272df74247b3ffffd278402aaa = $(`<div id="html_6e00f6272df74247b3ffffd278402aaa" style="width: 100.0%; height: 100.0%;">Stationsname: GEWOBA | Wilh.-Liebknecht 1<br>Station ID: 10278696<br>Bikes available: 0.0<br></div>`)[0];
+            popup_3d86282b33794ab18061bdf91010b42e.setContent(html_6e00f6272df74247b3ffffd278402aaa);
+        
+
+        circle_ca440199c1564c64a89db943a2b7199b.bindPopup(popup_3d86282b33794ab18061bdf91010b42e)
+        ;
+
+        
+    
+    
+            var circle_ff29aea0a71a4940b5040f6e4f85457f = L.circle(
+                [53.077782152703, 8.904043436050415],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_8a2ff34d61bc464fa279c0bf46668fac = L.popup({"maxWidth": 450});
+
+        
+            var html_52b9685f052e44ceb340143f1e38795e = $(`<div id="html_52b9685f052e44ceb340143f1e38795e" style="width: 100.0%; height: 100.0%;">Stationsname: GEWOBA | Ludwig-Beck 2a<br>Station ID: 10278716<br>Bikes available: 1.0<br></div>`)[0];
+            popup_8a2ff34d61bc464fa279c0bf46668fac.setContent(html_52b9685f052e44ceb340143f1e38795e);
+        
+
+        circle_ff29aea0a71a4940b5040f6e4f85457f.bindPopup(popup_8a2ff34d61bc464fa279c0bf46668fac)
+        ;
+
+        
+    
+    
+            var circle_67c20aa4fe8141b5be1707782a7b62ed = L.circle(
+                [53.074731, 8.876003],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_3dab4aebc15a4a03afbbc6c70bccffec = L.popup({"maxWidth": 450});
+
+        
+            var html_b1c389265f554b6db4732a555c423a11 = $(`<div id="html_b1c389265f554b6db4732a555c423a11" style="width: 100.0%; height: 100.0%;">Stationsname: GEWOBA | Heideplatz 1<br>Station ID: 10278729<br>Bikes available: 1.0<br></div>`)[0];
+            popup_3dab4aebc15a4a03afbbc6c70bccffec.setContent(html_b1c389265f554b6db4732a555c423a11);
+        
+
+        circle_67c20aa4fe8141b5be1707782a7b62ed.bindPopup(popup_3dab4aebc15a4a03afbbc6c70bccffec)
+        ;
+
+        
+    
+    
+            var circle_559428233cd749df96d245edeb472852 = L.circle(
+                [53.1060556, 8.77913888888889],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_a627f8153712401aa5ec674611307476 = L.popup({"maxWidth": 450});
+
+        
+            var html_62589e74dccd492bbb9e7e19f1f9d89d = $(`<div id="html_62589e74dccd492bbb9e7e19f1f9d89d" style="width: 100.0%; height: 100.0%;">Stationsname: Waller Straße<br>Station ID: 10278804<br>Bikes available: 1.0<br></div>`)[0];
+            popup_a627f8153712401aa5ec674611307476.setContent(html_62589e74dccd492bbb9e7e19f1f9d89d);
+        
+
+        circle_559428233cd749df96d245edeb472852.bindPopup(popup_a627f8153712401aa5ec674611307476)
+        ;
+
+        
+    
+    
+            var circle_6b4cfe62e53e4abb8c3c409b408ca56c = L.circle(
+                [53.102933393526165, 8.859170079231262],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_0578d128a96f4e01aed4f29344f1e5ea = L.popup({"maxWidth": 450});
+
+        
+            var html_7761dbc6216b4c2ab7ce89ba2f7d0520 = $(`<div id="html_7761dbc6216b4c2ab7ce89ba2f7d0520" style="width: 100.0%; height: 100.0%;">Stationsname: Caroline Henschel Strasse<br>Station ID: 10551452<br>Bikes available: 1.0<br></div>`)[0];
+            popup_0578d128a96f4e01aed4f29344f1e5ea.setContent(html_7761dbc6216b4c2ab7ce89ba2f7d0520);
+        
+
+        circle_6b4cfe62e53e4abb8c3c409b408ca56c.bindPopup(popup_0578d128a96f4e01aed4f29344f1e5ea)
+        ;
+
+        
+    
+    
+            var circle_a32118dab406476ea53d5f6be4e7ce6c = L.circle(
+                [53.09955154087005, 8.759247064590454],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_891d9197b0a7433eacd274e7e94ef59c = L.popup({"maxWidth": 450});
+
+        
+            var html_3a7d1760f5974a59837ad6c48744d45f = $(`<div id="html_3a7d1760f5974a59837ad6c48744d45f" style="width: 100.0%; height: 100.0%;">Stationsname: hanseWasser Bremen GmbH<br>Station ID: 11119973<br>Bikes available: 5.0<br></div>`)[0];
+            popup_891d9197b0a7433eacd274e7e94ef59c.setContent(html_3a7d1760f5974a59837ad6c48744d45f);
+        
+
+        circle_a32118dab406476ea53d5f6be4e7ce6c.bindPopup(popup_891d9197b0a7433eacd274e7e94ef59c)
+        ;
+
+        
+    
+    
+            var circle_2a9b645dc86b488a86a7430034e07ea2 = L.circle(
+                [53.028968044865486, 8.838157653808594],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_25febbac7bf34a8882e02cb90851f41c = L.popup({"maxWidth": 450});
+
+        
+            var html_b3d9c4f1b515414c9b91a29e2438e2b1 = $(`<div id="html_b3d9c4f1b515414c9b91a29e2438e2b1" style="width: 100.0%; height: 100.0%;">Stationsname: Twiedelftsweg<br>Station ID: 12732840<br>Bikes available: 1.0<br></div>`)[0];
+            popup_25febbac7bf34a8882e02cb90851f41c.setContent(html_b3d9c4f1b515414c9b91a29e2438e2b1);
+        
+
+        circle_2a9b645dc86b488a86a7430034e07ea2.bindPopup(popup_25febbac7bf34a8882e02cb90851f41c)
+        ;
+
+        
+    
+    
+            var circle_d7ea023b371d4e31a315cdc673cc8777 = L.circle(
+                [53.0857894902667, 8.817214965820312],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_0d7a6ed47ec8447c9ed5ecf60b297c17 = L.popup({"maxWidth": 450});
+
+        
+            var html_3613f34ace674d44988788dfdb5775e3 = $(`<div id="html_3613f34ace674d44988788dfdb5775e3" style="width: 100.0%; height: 100.0%;">Stationsname: Messe Bremen<br>Station ID: 12886693<br>Bikes available: 1.0<br></div>`)[0];
+            popup_0d7a6ed47ec8447c9ed5ecf60b297c17.setContent(html_3613f34ace674d44988788dfdb5775e3);
+        
+
+        circle_d7ea023b371d4e31a315cdc673cc8777.bindPopup(popup_0d7a6ed47ec8447c9ed5ecf60b297c17)
+        ;
+
+        
+    
+    
+            var circle_2fceff3b344543069f28c92f5da02794 = L.circle(
+                [53.094455714132344, 8.807998895645142],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 110.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_425b41332fc949bea02c43eb7f0247f3 = L.popup({"maxWidth": 450});
+
+        
+            var html_78811ef2f10a4f3080db11ad41d0ce0a = $(`<div id="html_78811ef2f10a4f3080db11ad41d0ce0a" style="width: 100.0%; height: 100.0%;">Stationsname: Hemmstrasse<br>Station ID: 13019673<br>Bikes available: 3.0<br></div>`)[0];
+            popup_425b41332fc949bea02c43eb7f0247f3.setContent(html_78811ef2f10a4f3080db11ad41d0ce0a);
+        
+
+        circle_2fceff3b344543069f28c92f5da02794.bindPopup(popup_425b41332fc949bea02c43eb7f0247f3)
+        ;
+
+        
+    
+    
+            var circle_a68deded45714ea98e6150cc6e067090 = L.circle(
+                [53.09421089310231, 8.844412565231323],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_1a01720884f94599a6c0e669bca5d050 = L.popup({"maxWidth": 450});
+
+        
+            var html_e69ac481f274453f8a1daff00f854528 = $(`<div id="html_e69ac481f274453f8a1daff00f854528" style="width: 100.0%; height: 100.0%;">Stationsname: Bremen 1860<br>Station ID: 14879993<br>Bikes available: 1.0<br></div>`)[0];
+            popup_1a01720884f94599a6c0e669bca5d050.setContent(html_e69ac481f274453f8a1daff00f854528);
+        
+
+        circle_a68deded45714ea98e6150cc6e067090.bindPopup(popup_1a01720884f94599a6c0e669bca5d050)
+        ;
+
+        
+    
+    
+            var circle_db7d637f489b4faa8b6dcc42beef6030 = L.circle(
+                [53.097828304174755, 8.8309907913208],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 150.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_92d32243d5414d60bfc2265cf5a4035b = L.popup({"maxWidth": 450});
+
+        
+            var html_d44acdfa5fab4d78a2eee07c82eb5ab0 = $(`<div id="html_d44acdfa5fab4d78a2eee07c82eb5ab0" style="width: 100.0%; height: 100.0%;">Stationsname: Meierei im Bürgerpark<br>Station ID: 15098720<br>Bikes available: 5.0<br></div>`)[0];
+            popup_92d32243d5414d60bfc2265cf5a4035b.setContent(html_d44acdfa5fab4d78a2eee07c82eb5ab0);
+        
+
+        circle_db7d637f489b4faa8b6dcc42beef6030.bindPopup(popup_92d32243d5414d60bfc2265cf5a4035b)
+        ;
+
+        
+    
+    
+            var circle_b1d5543168024baaa102a63c1c2aaad8 = L.circle(
+                [53.1031588409168, 8.78605842590332],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_a1b01dd80f7e459baa5aa9f208b1b04f = L.popup({"maxWidth": 450});
+
+        
+            var html_1a20a37c6a514e59b662fc07792e145c = $(`<div id="html_1a20a37c6a514e59b662fc07792e145c" style="width: 100.0%; height: 100.0%;">Stationsname: Bahnhof Walle<br>Station ID: 15767205<br>Bikes available: 1.0<br></div>`)[0];
+            popup_a1b01dd80f7e459baa5aa9f208b1b04f.setContent(html_1a20a37c6a514e59b662fc07792e145c);
+        
+
+        circle_b1d5543168024baaa102a63c1c2aaad8.bindPopup(popup_a1b01dd80f7e459baa5aa9f208b1b04f)
+        ;
+
+        
+    
+    
+            var circle_1c54facb45ac41d091f45811ea914907 = L.circle(
+                [53.098118199289175, 8.788483142852783],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 110.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_67884c7deea84d5a8e629aa013b3f20c = L.popup({"maxWidth": 450});
+
+        
+            var html_7f549f84084b4bb69a89c276be6632c0 = $(`<div id="html_7f549f84084b4bb69a89c276be6632c0" style="width: 100.0%; height: 100.0%;">Stationsname: Haltestelle Gustavstrasse<br>Station ID: 15859125<br>Bikes available: 3.0<br></div>`)[0];
+            popup_67884c7deea84d5a8e629aa013b3f20c.setContent(html_7f549f84084b4bb69a89c276be6632c0);
+        
+
+        circle_1c54facb45ac41d091f45811ea914907.bindPopup(popup_67884c7deea84d5a8e629aa013b3f20c)
+        ;
+
+        
+    
+    
+            var circle_0392fd91c8174109983772d8bb3c13db = L.circle(
+                [53.0578781942103, 8.786745071411133],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_ac759071c3fe4310a1ebd4234e779085 = L.popup({"maxWidth": 450});
+
+        
+            var html_fb9466673d364406855181924f7e8679 = $(`<div id="html_fb9466673d364406855181924f7e8679" style="width: 100.0%; height: 100.0%;">Stationsname: Irgendwo Festival<br>Station ID: 16521413<br>Bikes available: 0.0<br></div>`)[0];
+            popup_ac759071c3fe4310a1ebd4234e779085.setContent(html_fb9466673d364406855181924f7e8679);
+        
+
+        circle_0392fd91c8174109983772d8bb3c13db.bindPopup(popup_ac759071c3fe4310a1ebd4234e779085)
+        ;
+
+        
+    
+    
+            var circle_56e3cf588fc64bbdbea486f50df4449e = L.circle(
+                [53.09128259676156, 8.775758743286133],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_5db3269dde334fe9937a83831dffd321 = L.popup({"maxWidth": 450});
+
+        
+            var html_8b6173bf8ef248379cc854ef34d0b935 = $(`<div id="html_8b6173bf8ef248379cc854ef34d0b935" style="width: 100.0%; height: 100.0%;">Stationsname: Mondelez Deutschland Services GmbH<br>Station ID: 17322575<br>Bikes available: 1.0<br></div>`)[0];
+            popup_5db3269dde334fe9937a83831dffd321.setContent(html_8b6173bf8ef248379cc854ef34d0b935);
+        
+
+        circle_56e3cf588fc64bbdbea486f50df4449e.bindPopup(popup_5db3269dde334fe9937a83831dffd321)
+        ;
+
+        
+    
+    
+            var circle_0f7029321ca3410aac3e72c750038cdf = L.circle(
+                [53.101909203360336, 8.880112767219543],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 130.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_711184457ba64757bcc7f7add2a29b86 = L.popup({"maxWidth": 450});
+
+        
+            var html_32a0259f149142ac83d5d19d9cf5f71d = $(`<div id="html_32a0259f149142ac83d5d19d9cf5f71d" style="width: 100.0%; height: 100.0%;">Stationsname: Die Sparkasse Bremen Mühlenviertel<br>Station ID: 17322791<br>Bikes available: 4.0<br></div>`)[0];
+            popup_711184457ba64757bcc7f7add2a29b86.setContent(html_32a0259f149142ac83d5d19d9cf5f71d);
+        
+
+        circle_0f7029321ca3410aac3e72c750038cdf.bindPopup(popup_711184457ba64757bcc7f7add2a29b86)
+        ;
+
+        
+    
+    
+            var circle_d5347ceeb9564469be8919be3f9c85f3 = L.circle(
+                [53.10305577939912, 8.753035068511963],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 70.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_82fd6c3aea9b44d9a14599f651584da5 = L.popup({"maxWidth": 450});
+
+        
+            var html_50284fbd3e004bd9b5eda2d1508886cb = $(`<div id="html_50284fbd3e004bd9b5eda2d1508886cb" style="width: 100.0%; height: 100.0%;">Stationsname: Am Waller Strandpark Waller Sand<br>Station ID: 17322858<br>Bikes available: 1.0<br></div>`)[0];
+            popup_82fd6c3aea9b44d9a14599f651584da5.setContent(html_50284fbd3e004bd9b5eda2d1508886cb);
+        
+
+        circle_d5347ceeb9564469be8919be3f9c85f3.bindPopup(popup_82fd6c3aea9b44d9a14599f651584da5)
+        ;
+
+        
+    
+    
+            var circle_722a2abdfe7041268ccedb4a1fed8fc4 = L.circle(
+                [53.02719681322195, 8.803090453147888],
+                {"bubblingMouseEvents": true, "color": "royalblue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "royalblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50.0, "stroke": true, "weight": 3}
+            ).addTo(map_118a9bb3843b44c4b5ffb1203c01b2e9);
+        
+    
+        var popup_3485bd71545e42699aec984d2c41f8a4 = L.popup({"maxWidth": 450});
+
+        
+            var html_d18c41a40b9243df8f8f93e445a62137 = $(`<div id="html_d18c41a40b9243df8f8f93e445a62137" style="width: 100.0%; height: 100.0%;">Stationsname: IKEA Brinkum<br>Station ID: 29359657<br>Bikes available: 0.0<br></div>`)[0];
+            popup_3485bd71545e42699aec984d2c41f8a4.setContent(html_d18c41a40b9243df8f8f93e445a62137);
+        
+
+        circle_722a2abdfe7041268ccedb4a1fed8fc4.bindPopup(popup_3485bd71545e42699aec984d2c41f8a4)
+        ;
+
+        
+    
+</script>
