@@ -2,7 +2,6 @@ import os
 import datetime
 import pandas as pd
 from tqdm import tqdm
-
 from .. import io
 
 
@@ -127,6 +126,10 @@ class Preprocessor:
                     buffer = ping
 
         self._trips = pd.DataFrame.from_records(self._trips)
+
+        # Drop round trips - trips with no differences in both start/end lng and start/end lat
+        self._trips = self._trips[(self._trips['start_lng'] != self._trips['end_lng']) |
+                                  (self._trips['start_lat'] != self._trips['end_lat'])]
 
         # Save trips data set as csv in data/preprocessed.
         io.save_df(self._trips, 'trips')
