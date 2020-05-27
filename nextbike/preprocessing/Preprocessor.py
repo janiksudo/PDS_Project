@@ -46,6 +46,10 @@ class Preprocessor:
         self._raw.dropna(inplace=True)
         print('Null values dropped.')
 
+        # Sort data by timestamp
+        self._raw['datetime'] = pd.to_datetime(self._raw['datetime'])  # parse timestamp to datetime
+        self._raw = self._raw.sort_values('datetime')
+
         # Save cleaned data set as csv in data/preprocessed.
         io.save_df(self._raw, 'bremen_cleaned')
         print('Cleaned data set saved in data/processed as bremen_cleaned.csv.')
