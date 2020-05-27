@@ -3,6 +3,7 @@ import datetime
 import pandas as pd
 from tqdm import tqdm
 from .. import io
+import geopandas as gpd
 
 
 class Preprocessor:
@@ -13,6 +14,7 @@ class Preprocessor:
     def __init__(self, data_path):
         self._datapath = data_path
         self._raw = io.read_file(path=os.path.join(self._datapath, 'raw/bremen.csv'))
+        self.plz_df = gpd.read_file(self._datapath + '/external/plz_bremen.geojson')
 
     def clean_dataset(self):
 
@@ -26,6 +28,18 @@ class Preprocessor:
                               (self._raw['p_lat'] > 53.011037) &
                               (self._raw['p_lng'] < 8.990582) &
                               (self._raw['p_lng'] > 8.481593)]
+
+        # Create geopandas data frames from data frames
+        print('Filtering for city of Bremen. This can take some time depending on the computational power of your '
+              'device.')
+        self._raw = gpd.GeoDataFrame(self._raw, geometry=gpd.points_from_xy(self._raw.p_lng.copy(),
+                                                                            self._raw.p_lat.copy()))
+
+        self._raw = gpd.sjoin(self._raw, self.plz_df[['geometry', 'plz']], how='left', op='within')
+
+        # Drop null values which include all data points outside of Bremens boundaries
+        self._raw = self._raw.drop(columns=['index_right']).dropna()
+
         print('Filtered for city of Bremen.')
 
         # Drop duplicates with key datetime and bike number
@@ -133,7 +147,8 @@ class Preprocessor:
 
         # Drop round trips - trips with no differences in both start/end lng and start/end lat
         self._trips = self._trips[(self._trips['start_lng'] != self._trips['end_lng']) |
-                                  (self._trips['start_lat'] != self._trips['end_lat'])]
+                                  (self._trips['start_lat'] != self._trips['end_lat']) |
+                                  (self._trips['duration_sec'] > 180)]
 
         # Save trips data set as csv in data/preprocessed.
         io.save_df(self._trips, 'trips')
