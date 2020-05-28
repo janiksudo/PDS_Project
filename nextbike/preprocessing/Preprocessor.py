@@ -13,8 +13,10 @@ class Preprocessor:
 
     def __init__(self, data_path):
         self._datapath = data_path
-        self._raw = io.read_file(path=os.path.join(self._datapath, 'raw/bremen.csv'))
-        self.plz_df = gpd.read_file(self._datapath + '/external/plz_bremen.geojson')
+        self._raw = io.read_file(path=os.path.join(
+            self._datapath, 'raw/bremen.csv'))
+        self.plz_df = gpd.read_file(
+            self._datapath + '/external/plz_bremen.geojson')
 
     def clean_dataset(self):
 
@@ -35,7 +37,8 @@ class Preprocessor:
         self._raw = gpd.GeoDataFrame(self._raw, geometry=gpd.points_from_xy(self._raw.p_lng.copy(),
                                                                             self._raw.p_lat.copy()))
 
-        self._raw = gpd.sjoin(self._raw, self.plz_df[['geometry', 'plz']], how='left', op='within')
+        self._raw = gpd.sjoin(
+            self._raw, self.plz_df[['geometry', 'plz']], how='left', op='within')
 
         # Drop null values which include all data points outside of Bremens boundaries
         self._raw = self._raw.drop(columns=['index_right']).dropna()
@@ -43,7 +46,8 @@ class Preprocessor:
         print('Filtered for city of Bremen.')
 
         # Drop duplicates with key datetime and bike number
-        self._raw = self._raw[self._raw.duplicated(subset=['datetime', 'b_number'], keep='first') == False]
+        self._raw = self._raw[self._raw.duplicated(
+            subset=['datetime', 'b_number'], keep='first') == False]
         print('Duplicates of subset [datetime, bike number] dropped.')
 
         # Reset index to be improve its interpretability
@@ -52,8 +56,8 @@ class Preprocessor:
 
         # Rearange order of columns in a more intuitive order.
         self._raw = self._raw[['datetime', 'b_number', 'b_bike_type', 'p_spot', 'p_place_type',
-                         'trip', 'p_uid', 'p_bikes', 'p_name',
-                         'p_number', 'p_bike', 'p_lat', 'p_lng']]
+                               'trip', 'p_uid', 'p_bikes', 'p_name',
+                               'p_number', 'p_bike', 'p_lat', 'p_lng']]
         print('Order of columns rearranged.')
 
         # Drop null values
@@ -61,7 +65,8 @@ class Preprocessor:
         print('Null values dropped.')
 
         # Sort data by timestamp
-        self._raw['datetime'] = pd.to_datetime(self._raw['datetime'])  # parse timestamp to datetime
+        self._raw['datetime'] = pd.to_datetime(
+            self._raw['datetime'])  # parse timestamp to datetime
         self._raw = self._raw.sort_values('datetime')
 
         # Save cleaned data set as csv in data/preprocessed.
@@ -144,11 +149,18 @@ class Preprocessor:
                     buffer = ping
 
         self._trips = pd.DataFrame.from_records(self._trips)
+        print('created', len(self._trips), 'trips.')
 
-        # Drop round trips - trips with no differences in both start/end lng and start/end lat
-        self._trips = self._trips[(self._trips['start_lng'] != self._trips['end_lng']) |
-                                  (self._trips['start_lat'] != self._trips['end_lat']) |
-                                  (self._trips['duration_sec'] > 180)]
+        # Drop round trips - trips with no differences in both start/end lng and start/end lat that are not station-bound
+        print('removing round-trips that are obviously not real...')
+        self._trips = self._trips[~((self._trips['start_lng'] == self._trips['end_lng']) &
+                                    (self._trips['start_lat'] == self._trips['end_lat']) &
+                                    (self._trips['start_place'] == 0) & (self._trips['end_place'] == 0))]
+
+        # Drop remaining round trips that are shorter (or =) 3 minutes - 180 seconds
+        self._trips = self._trips[self._trips['duration_sec'] > 180]
+
+        print(len(self._trips), 'trips remaining.')
 
         # Save trips data set as csv in data/preprocessed.
         io.save_df(self._trips, 'trips')
