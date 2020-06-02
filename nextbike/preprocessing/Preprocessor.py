@@ -170,6 +170,7 @@ class Preprocessor:
 
         print(len(self._trips), 'trips remaining...')
 
+        # TODO: das hier droppt zu viel!
         # drop round trips on days that deviate more than 3 std variations away from the median (more robust than the mean)
         print('removing trips on days that deviate 3 std away from the median of trips per day...')
         tripsperday = self._trips[(self._trips['start_lng'] == self._trips['end_lng']) & (
@@ -377,6 +378,9 @@ class Preprocessor:
         print('To import the data use the following command:')
         print("pd.read_csv(path + 'weather.gz', index_col='timestamp')")
 
+    def _get_weather(self):
+        return pd.read_csv(path=os.path.join(self._datapath, 'processed/weather.gz'), index_col='timestamp')
+
     def mergeWeatherTrips(self, trips, weather):
         weather['timestamp'] = pd.to_datetime(weather['timestamp'])
 
@@ -398,3 +402,12 @@ class Preprocessor:
 
     def _get_merged(self):
         return io.read_file(path=os.path.join(self._datapath, 'processed/trips_weather.csv'))
+
+    def run(self):
+
+        self.clean_dataset()
+        self.create_trips()
+        self.prepWeather()
+        trips = self._get_trips()
+        weather = self._get_weather()
+        self.mergeWeatherTrips(trips, weather)
