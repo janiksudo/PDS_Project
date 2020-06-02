@@ -1,9 +1,13 @@
-import os
-import datetime
-import pandas as pd
-from tqdm import tqdm
 from .. import io
+import datetime
 import geopandas as gpd
+import os
+import pandas as pd
+from pandas.io.json import json_normalize
+import seaborn as sns
+from shapely.ops import cascaded_union
+from tqdm import tqdm
+import json
 
 
 class Preprocessor:
@@ -134,7 +138,6 @@ class Preprocessor:
                         if moved:
                             self._write_trip(ping, buffer)
                             buffer = None
-                            # TODO: roundtrips over midnight to a station vs. that station going offline?
 
                 elif trip == 'end' and buffer_trip == 'start':
                     # write trip, discard buffer and continue
@@ -157,8 +160,37 @@ class Preprocessor:
                                     (self._trips['start_lat'] == self._trips['end_lat']) &
                                     (self._trips['start_place'] == 0) & (self._trips['end_place'] == 0))]
 
-        # Drop remaining round trips that are shorter (or =) 3 minutes - 180 seconds
-        self._trips = self._trips[self._trips['duration_sec'] > 180]
+        print(len(self._trips), 'trips remaining...')
+
+        # Drop remaining round trips that are shorter (or =) 7 minutes
+        print('removing sub-7 round-trips...')
+        self._trips = self._trips[~((self._trips['start_lng'] == self._trips['end_lng']) & (
+            self._trips['start_lat'] == self._trips['end_lat']) & (self._trips['duration_sec'] <= 420))]
+
+        print(len(self._trips), 'trips remaining...')
+
+        # drop round trips on days that deviate more than 3 std variations away from the median (more robust than the mean)
+        print('removing trips on days that deviate 3 std away from the median of trips per day...')
+        tripsperday = self._trips[(self._trips['start_lng'] == self._trips['end_lng']) & (
+            self._trips['start_lat'] == self._trips['end_lat'])].resample('D', on='start_time').agg({'bike': 'count'}).reset_index()
+        cutoff = tripsperday.std().values[0] * 3
+        tripsmean = tripsperday.median().values[0]
+        dropdays = tripsperday[tripsperday['bike'] > tripsmean +
+                               cutoff]['start_time'].dt.strftime('%Y-%m-%d')
+        self._trips = self._trips[~(self._trips['start_time'].dt.strftime('%Y-%m-%d').isin(dropdays)) & (
+            self._trips['start_lng'] == self._trips['end_lng']) & (self._trips['start_lat'] == self._trips['end_lat'])]
+        print(len(self._trips), 'trips remaining...')
+
+        # drop trips that duplicate perfectly over start_time and end_time and when this happens > 10
+        print('removing trips that duplicate perfectly on start and end time...')
+        duplicates = self._trips.duplicated(
+            subset=['start_time', 'end_time'], keep=False)
+        n_duplicates = self._trips[duplicates].groupby(['start_time', 'end_time']).agg(
+            {'bike': 'count'}).reset_index().rename({'bike': 'count'}, axis=1)
+        drop_starttimes = n_duplicates[n_duplicates['count']
+                                       < 10]['start_time']
+        self._trips = self._trips[~(
+            self._trips['start_time'].isin(drop_starttimes))]
 
         print(len(self._trips), 'trips remaining.')
 
