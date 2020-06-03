@@ -156,7 +156,7 @@ class Preprocessor:
         print('created', len(self._trips), 'trips.')
 
         # Drop round trips - trips with no differences in both start/end lng and start/end lat that are not station-bound
-        print('removing round-trips that are obviously not real...')
+        print('removing round trips that are obviously not real...')
         self._trips = self._trips[~((self._trips['start_lng'] == self._trips['end_lng']) &
                                     (self._trips['start_lat'] == self._trips['end_lat']) &
                                     (self._trips['start_place'] == 0) & (self._trips['end_place'] == 0))]
@@ -164,7 +164,7 @@ class Preprocessor:
         print(len(self._trips), 'trips remaining...')
 
         # Drop remaining round trips that are shorter (or =) 7 minutes
-        print('removing sub-7 round-trips...')
+        print('removing sub-7 round trips...')
         self._trips = self._trips[~((self._trips['start_lng'] == self._trips['end_lng']) & (
             self._trips['start_lat'] == self._trips['end_lat']) & (self._trips['duration_sec'] <= 420))]
 
