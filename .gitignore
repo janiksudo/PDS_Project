@@ -129,28 +129,4 @@ dmypy.json
 
 # extra für Tim
 .DS_Store
-/reports/figures/end_locations_hexmap_2019.html
-/reports/figures/hm_24_hours_2019.html
-/reports/figures/hm_e_august_31_2019.html
-/reports/figures/hm_e_june_15_2019.html
-/reports/figures/hm_e_march_30_2019.html
-/reports/figures/hm_e_may_18_2019.html
-/reports/figures/hm_e_september_20_2019.html
-/reports/figures/hm_june_15_2019.html
-/reports/figures/hm_months_2019.html
-/reports/figures/hm_s_march_30_2019.html
-/reports/figures/hm_trip_ends_2019.html
-/reports/figures/hm_trip_starts_2019.html
-/reports/figures/hm_weekdays_2019.html
-/reports/figures/samplevis_bremen_clustered.html
-/reports/figures/start_locations_hexmap_2019.html
-/reports/figures/bookings_by_time_otd.png
-/reports/figures/bookings_by_time_otd_weekend.png
-/reports/figures/bookings_by_weekdays.png
 /reports/figures/bremen_clustered.html
-/reports/figures/daily_rented_minutes.png
-/reports/figures/day_bookings_trips.png
-/reports/figures/avg_rented_minutes.png
-/reports/figures/sub_day_rented_minutes.png
-/reports/figures/sub_day_rented_minutes2.png
-/reports/figures/sub_day_rented_minutes3.png
