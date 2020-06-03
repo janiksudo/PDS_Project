@@ -170,7 +170,6 @@ class Preprocessor:
 
         print(len(self._trips), 'trips remaining...')
 
-        # TODO: das hier droppt zu viel!
         # drop round trips on days that deviate more than 3 std variations away from the median (more robust than the mean)
         print('removing trips on days that deviate 3 std away from the median of trips per day...')
         tripsperday = self._trips[(self._trips['start_lng'] == self._trips['end_lng']) & (
@@ -179,8 +178,8 @@ class Preprocessor:
         tripsmean = tripsperday.median().values[0]
         dropdays = tripsperday[tripsperday['bike'] > tripsmean +
                                cutoff]['start_time'].dt.strftime('%Y-%m-%d')
-        self._trips = self._trips[~(self._trips['start_time'].dt.strftime('%Y-%m-%d').isin(dropdays)) & (
-            self._trips['start_lng'] == self._trips['end_lng']) & (self._trips['start_lat'] == self._trips['end_lat'])]
+        self._trips = self._trips[~((self._trips['start_time'].dt.strftime('%Y-%m-%d').isin(dropdays)) & (
+            self._trips['start_lng'] == self._trips['end_lng']) & (self._trips['start_lat'] == self._trips['end_lat']))]
         print(len(self._trips), 'trips remaining...')
 
         # drop trips that duplicate perfectly over start_time and end_time and when this happens > 10
