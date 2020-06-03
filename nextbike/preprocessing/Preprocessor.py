@@ -240,7 +240,7 @@ class Preprocessor:
 
         return df
 
-    def prepWeather(self):
+    def prepWeather(self, year=2019):
         path = os.path.join(self._datapath, 'external/')
 
         urls = {
@@ -267,7 +267,7 @@ class Preprocessor:
         solar = self._getDwdData(urls['solar'], path, 'solar.zip')
         print('Cleaning air_temp')
 
-        air_temp = self._filterForYear(air_temp, 2019)
+        air_temp = self._filterForYear(air_temp, year)
 
         # Drop unnecessary columns
         air_temp.drop(columns={'STATIONS_ID', '  QN',
@@ -283,7 +283,7 @@ class Preprocessor:
 
         print('Cleaning air_temp_extr')
 
-        air_temp_extr = self._filterForYear(air_temp_extr, 2019)
+        air_temp_extr = self._filterForYear(air_temp_extr, year)
 
         # Drop unnecessary columns
         air_temp_extr.drop(
@@ -301,7 +301,7 @@ class Preprocessor:
 
         print('Cleaning wind')
 
-        wind = self._filterForYear(wind, 2019)
+        wind = self._filterForYear(wind, year)
 
         # Drop unnecessary columns
         wind.drop(columns={'STATIONS_ID', '  QN', 'eor'}, inplace=True)
@@ -315,7 +315,7 @@ class Preprocessor:
 
         print('Cleaning wind_extr')
 
-        wind_extr = self._filterForYear(wind_extr, 2019)
+        wind_extr = self._filterForYear(wind_extr, year)
 
         # Drop unnecessary columns
         wind_extr.drop(columns={'STATIONS_ID', '  QN', 'eor'}, inplace=True)
@@ -329,7 +329,7 @@ class Preprocessor:
 
         print('Cleaning precipitation')
 
-        precipitation = self._filterForYear(precipitation, 2019)
+        precipitation = self._filterForYear(precipitation, year)
 
         # Drop unnecessary columns
         precipitation.drop(
@@ -344,7 +344,7 @@ class Preprocessor:
 
         print('Cleaning solar')
 
-        solar = self._filterForYear(solar, 2019)
+        solar = self._filterForYear(solar, year)
 
         # Drop unnecessary columns
         solar.drop(columns={'STATIONS_ID', '  QN', 'eor'}, inplace=True)
@@ -406,7 +406,7 @@ class Preprocessor:
 
         self.clean_dataset()
         self.create_trips()
-        self.prepWeather()
+        self.prepWeather(year=2019)
         trips = self._get_trips()
         weather = self._get_weather()
         self.mergeWeatherTrips(trips, weather)
