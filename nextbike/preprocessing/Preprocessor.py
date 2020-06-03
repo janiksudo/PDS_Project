@@ -1,13 +1,9 @@
 from .. import io
 import datetime
 import geopandas as gpd
-import json
 import os
 import pandas as pd
-from pandas.io.json import json_normalize
 import requests
-import seaborn as sns
-from shapely.ops import cascaded_union
 from tqdm import tqdm
 
 
@@ -19,7 +15,7 @@ class Preprocessor:
     def __init__(self, data_path):
         self._datapath = data_path
         self._raw = io.read_file(path=os.path.join(
-            self._datapath, 'raw/bremen.csv'))
+            self._datapath, 'raw/bremen.csv'), datetime_cols=['datetime'])
         self.plz_df = gpd.read_file(
             self._datapath + '/external/plz_bremen.geojson')
 
@@ -80,7 +76,8 @@ class Preprocessor:
         print('Cleaning data sucessfully finished.')
 
     def _get_cleaned(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/bremen_cleaned.csv'))
+        return io.read_file(path=os.path.join(self._datapath, 'processed/bremen_cleaned.csv'),
+                            datetime_cols=['datetime'])
 
     def _write_trip(self, ping, buffer):
         trip = {'bike': ping['b_number'],
@@ -204,7 +201,8 @@ class Preprocessor:
         print('Creating trips from data completed successfully.')
 
     def _get_trips(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/trips.csv'))
+        return io.read_file(path=os.path.join(self._datapath, 'processed/trips.csv'),
+                            datetime_cols=['start_time', 'end_time'])
 
     def _saveDwdData(self, url, path, f_name):
 
@@ -248,8 +246,7 @@ class Preprocessor:
             'air_temp_extr': 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/extreme_temperature/historical/10minutenwerte_extrema_temp_00691_20100101_20191231_hist.zip',
             'wind': 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/wind/historical/10minutenwerte_wind_00691_20100101_20191231_hist.zip',
             'wind_extr': 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/extreme_wind/historical/10minutenwerte_extrema_wind_00691_20100101_20191231_hist.zip',
-            'precipitation': 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/precipitation/historical/10minutenwerte_nieder_00691_20100101_20191231_hist.zip',
-            'solar': 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/solar/historical/10minutenwerte_SOLAR_00691_20100101_20191231_hist.zip'
+            'precipitation': 'https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/10_minutes/precipitation/historical/10minutenwerte_nieder_00691_20100101_20191231_hist.zip'
         }
 
         air_temp = self._getDwdData(urls['air_temp'], path, 'air_temp.zip')
@@ -264,7 +261,6 @@ class Preprocessor:
         precipitation = self._getDwdData(
             urls['precipitation'], path, 'precipitation.zip')
 
-        solar = self._getDwdData(urls['solar'], path, 'solar.zip')
         print('Cleaning air_temp')
 
         air_temp = self._filterForYear(air_temp, year)
@@ -342,22 +338,6 @@ class Preprocessor:
         precipitation.replace(-999, float('NaN'), inplace=True)
         precipitation.dropna(inplace=True)
 
-        print('Cleaning solar')
-
-        solar = self._filterForYear(solar, year)
-
-        # Drop unnecessary columns
-        solar.drop(columns={'STATIONS_ID', '  QN', 'eor'}, inplace=True)
-
-        # Assign interpretable column names
-        solar.rename(columns={'DS_10': 'diffuse_radiation', 'GS_10': 'incoming_radiation',
-                              'SD_10': 'duration_h', 'LS_10': 'longwave_downward_radiation'}, inplace=True)
-
-        solar.drop(columns={'longwave_downward_radiation'}, inplace=True)
-
-        solar.replace(-999, float('NaN'), inplace=True)
-        solar.dropna(inplace=True)
-
         print('Merging all weather data...')
 
         all_weather = pd.merge(air_temp, air_temp_extr, on='timestamp')
@@ -375,10 +355,10 @@ class Preprocessor:
         print('Getting and cleaning of weather data successful!')
         print('Data saved as ' + path + 'weather.gz')
         print('To import the data use the following command:')
-        print("pd.read_csv(path + 'weather.gz', index_col='timestamp')")
+        print("pd.read_csv(path + 'external/weather.gz', index_col='timestamp')")
 
     def _get_weather(self):
-        return pd.read_csv(path=os.path.join(self._datapath, 'processed/weather.gz'), index_col='timestamp')
+        return pd.read_csv(os.path.join(self._datapath, 'external/weather.gz'))
 
     def mergeWeatherTrips(self, trips, weather):
         weather['timestamp'] = pd.to_datetime(weather['timestamp'])
@@ -393,14 +373,15 @@ class Preprocessor:
         data.drop(columns=['sTime_floored'], inplace=True)
         print("Trip and weather data merged")
         print("Clean data")
-        data.drop(columns=["bike_type", "mm"], inplace=True)
+        data.drop(columns=["bike_type", "mm", "timestamp"], inplace=True)
         data.dropna(inplace=True)
 
         # save to /data/processed/trips_weather.zip
         io.save_df(data, 'trips_weather')
 
     def _get_merged(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/trips_weather.csv'))
+        return io.read_file(path=os.path.join(self._datapath, 'processed/trips_weather.csv'),
+                            datetime_cols=['start_time', 'end_time'])
 
     def run(self):
 
