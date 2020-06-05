@@ -58,7 +58,7 @@ class Preprocessor:
         # Rearange order of columns in a more intuitive order.
         self._raw = self._raw[['datetime', 'b_number', 'b_bike_type', 'p_spot', 'p_place_type',
                                'trip', 'p_uid', 'p_bikes', 'p_name',
-                               'p_number', 'p_bike', 'p_lat', 'p_lng']]
+                               'p_number', 'p_bike', 'p_lat', 'p_lng', 'plz']]
         print('Order of columns rearranged.')
 
         # Drop null values
@@ -91,7 +91,9 @@ class Preprocessor:
                 'end_lng': ping['p_lng'],
                 'end_lat': ping['p_lat'],
                 'start_place': buffer['p_number'],
-                'end_place': ping['p_number']
+                'end_place': ping['p_number'],
+                'start_plz': buffer['plz'],
+                'end_plz': ping['plz']
                 }
 
         self._trips.append(trip)
