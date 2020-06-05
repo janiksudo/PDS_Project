@@ -1,5 +1,8 @@
 from .. import io
+
+from sklearn.ensemble import RandomForestRegressor
 import os
+import pandas as pd
 import geopandas as gpd
 
 
@@ -26,20 +29,17 @@ class Predictor:
 
     def train_duration(self):
 
-        self.trips_duration = self._processed
+        trips_duration = self._processed
 
-        for col in ['start_time']:
-            self.trips_duration['month'] = pd.DatetimeIndex(
-                self.trips_duration['start_time']).month
-            self.trips_duration['booking_date'] = self.trips_duration.start_time.dt.date
-            self.trips_duration['weekdays'] = pd.DatetimeIndex(
-                self.trips_duration['start_time']).weekday
+        trips_duration['duration_min'] = trips_duration['duration_sec']/60
 
-        self.trips_duration['duration_min'] = self.trips_duration['duration_sec']/60
-        # Feature Creation
-        # Train Model
-        # Dump Model
+        X = trips_duration[['start_plz','start_place', 'max_mean_m/s']]
+        y = trips_duration['duration_min']
+        
+        rf = RandomForestRegressor(criterion='mse', n_estimators=512, max_depth=2)
+        rf.fit(X, y)
 
+        io.save_model(rf, "model_duration")
         return
 
     def train_direction(self):

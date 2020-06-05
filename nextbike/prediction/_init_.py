@@ -1,1 +1,2 @@
-from .Predictor import Predictor
+from .Predictor import *
+
