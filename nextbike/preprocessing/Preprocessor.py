@@ -378,11 +378,11 @@ class Preprocessor:
         data.drop(columns=["bike_type", "mm", "timestamp"], inplace=True)
         data.dropna(inplace=True)
 
-        # save to /data/processed/trips_weather.zip
-        io.save_df(data, 'trips_weather')
+        # save to /data/processed/dataset.csv
+        io.save_df(data, 'dataset')
 
     def _get_merged(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/trips_weather.csv'),
+        return io.read_file(path=os.path.join(self._datapath, 'processed/dataset.csv'),
                             datetime_cols=['start_time', 'end_time'])
 
     def run(self):
