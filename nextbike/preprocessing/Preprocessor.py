@@ -16,7 +16,7 @@ class Preprocessor:
     _year = 2019
 
     def __init__(self, data_path, new, year):
-        _new = new
+        self._new = new
         _year = year
         data_name = 'new_data' if new else 'bremen'
         self._datapath = data_path
