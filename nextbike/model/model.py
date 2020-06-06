@@ -55,7 +55,8 @@ class Model:
 
     def predict_duration(self):
 
-        # Do the magic
+        model = io.read_model("model_duration")
+        model.score
 
         return
 
