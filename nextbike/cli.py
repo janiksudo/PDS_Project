@@ -37,7 +37,7 @@ def transform(filename, refresh):
                 required=True)
 @click.option('-t', '--resolution',
               metavar='<temporal resolution>',
-              type=click.Choice([1, 6, 12, 24]),
+              type=click.Choice(['1', '6', '12', '24']),
               default=None,
               help='The temporal resolution used for resampling the data in combination with demand prediction.')
 def train(whatmodel, resolution):
@@ -66,7 +66,7 @@ def train(whatmodel, resolution):
                 'No temporal resolution defined, please specify using the -t/--resolution parameter.')
             sys.exit(0)
         else:
-            m.train_demand(str(resolution)+'H')
+            m.train_demand(resolution +'H')
 
 
 @cli.command(short_help='Predict trip duration, direction or bike demand.')
@@ -78,7 +78,7 @@ def train(whatmodel, resolution):
 @click.option('--mainstation', 'direction', flag_value='hbf', help='Specifies direction towards Bremen main station, when predicting direction.')
 @click.option('-t', '--resolution',
               metavar='<temporal resolution>',
-              type=click.Choice([1, 6, 12, 24]),
+              type=click.Choice(['1', '6', '12', '24']),
               default=None,
               help='The temporal resolution used for resampling the data in combination with demand prediction.')
 @click.argument('filename', type=click.Path(), required=True)
@@ -111,7 +111,7 @@ def predict(whatmodel, direction, resolution, filename):
                 'No temporal resolution defined, please specify using the -t/--resolution parameter.')
             sys.exit(0)
         else:
-            m.predict_demand(str(resolution)+'H')
+            m.predict_demand(resolution + 'H')
 
 
 if __name__ == '__main__':

@@ -321,14 +321,28 @@ class Model:
 
         features = ['month', "hour", 'temp_2m', "min"]
 
+        trips_demand['number_bookings'] = 1
+
         trips_demand = self._setDataset(trips_demand, resolution, "start_time", {
-                                        "number_bookings": "count", "month": "mean",  "hour": "mean", "temp_2m": "mean", "min": "mean", })
+                                        "number_bookings": "count", "month": "mean",  "hour": "mean", "temp_2m": "mean", "min": "mean"})
         trips_demand.dropna(axis=0, inplace=True)
 
         X = trips_demand[features]
 
+        switch = {
+            '1H': 5,
+            '6H': 3,
+            '12H': 2,
+            '24H': 1
+        }
+
+        poly_features = PolynomialFeatures(
+            degree=switch.get(resolution), include_bias=False)
+        X_poly = poly_features.fit_transform(X)
+
         model = io.read_model("model_demand_" + resolution)
-        trips_demand['prediction_' + resolution] = model.predict(X)
+
+        trips_demand['prediction_' + resolution] = model.predict(X_poly)
 
         io.save_prediction(trips_demand, 'duration_prediction_' + resolution)
 

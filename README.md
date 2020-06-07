@@ -67,9 +67,9 @@ Usage: nextbike train [OPTIONS] <model>
 
 Options:
   -t, --resolution <temporal resolution>
-                                  The temporal resolution used for resampling
+                                  The temporal resolution in hours used for resampling
                                   the data in combination with demand
-                                  prediction.
+                                  prediction. (1, 6, 12 or 24)
 ```
 
 ### Prediction:
