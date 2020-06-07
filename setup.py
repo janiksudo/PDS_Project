@@ -5,12 +5,12 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='PDS_Project',
-    version='0.0.1dev1',
+    version='1.0.0-rc.1',
     description="Semester Project - Programming Data Science",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="",
-    author_email="student@uni-koeln.de",
+    author="Diana Gowalow, Max Kaiser, Tim Ockenga, Tom Celig, Janik Muires",
+    author_email="jmuires@smail.uni-koeln.de",
     url="https://github.com/janiksudo/PDS_Project",
     packages=setuptools.find_packages(),
     install_requires=['pandas', 'scikit-learn', 'click'],

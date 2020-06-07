@@ -1,4 +1,4 @@
-from .utils import get_data_path
+from .utils import *
 import pandas as pd
 import os
 import pickle
@@ -12,8 +12,8 @@ def read_file(path=os.path.join(get_data_path(), "input/<My_data>.csv"), datetim
         print("Data file not found. Path was " + path)
 
 
-def read_model():
-    path = os.path.join(get_data_path(), "output/model.pkl")
+def read_model(name):
+    path = os.path.join(get_model_path(), "" + name + ".pkl")
     with open(path, "rb") as f:
         model = pickle.load(f)
     return model
