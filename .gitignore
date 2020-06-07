@@ -129,3 +129,4 @@ dmypy.json
 
 # extra für Tim
 .DS_Store
+/reports/figures/bremen_clustered.html

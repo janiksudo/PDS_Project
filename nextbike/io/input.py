@@ -4,12 +4,9 @@ import os
 import pickle
 
 
-def read_file(path=os.path.join(get_data_path(), "input/<My_data>.csv")):
+def read_file(path=os.path.join(get_data_path(), "input/<My_data>.csv"), datetime_cols=['datetime']):
     try:
-        try:
-            df = pd.read_csv(path, parse_dates=['datetime', 'start_time', 'end_time'], infer_datetime_format=True, cache_dates=True)
-        except ValueError:
-            df = pd.read_csv(path, parse_dates=['datetime'], infer_datetime_format=True, cache_dates=True)
+        df = pd.read_csv(path, parse_dates=datetime_cols, infer_datetime_format=True, cache_dates=True)
         return df
     except FileNotFoundError:
         print("Data file not found. Path was " + path)
