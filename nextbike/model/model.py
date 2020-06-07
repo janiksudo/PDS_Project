@@ -208,7 +208,7 @@ class Model:
         io.save_df(trips_duration, 'duration_prediction')
         print('Saved prediction.')
 
-    # This function predicts for each trip in the data set new_data.csv if it is 
+    # This function predicts for each trip in the data set new_data.csv if its direction is toward the university of Bremen.
     def predict_direction_uni(self):
 
         trips_direction = self._processed_new
@@ -237,6 +237,7 @@ class Model:
         io.save_df(trips_direction, 'direction_prediction_uni')
         print('Saved prediction.')
 
+    # This function predicts for each trip in the data set new_data.csv if its direction is toward the main station of Bremen.
     def predict_direction_main_station(self):
 
         trips_direction = self._processed_new
