@@ -1,6 +1,7 @@
 from .. import io
 import datetime
 import geopandas as gpd
+import numpy as np
 import os
 import pandas as pd
 import requests
@@ -11,11 +12,16 @@ class Preprocessor:
 
     _cleaned = None
     _trips = []
+    _new = False
+    _year = 2019
 
-    def __init__(self, data_path):
+    def __init__(self, data_path, new, year):
+        self._new = new
+        _year = year
+        data_name = 'new_data' if new else 'bremen'
         self._datapath = data_path
         self._raw = io.read_file(path=os.path.join(
-            self._datapath, 'raw/bremen.csv'), datetime_cols=['datetime'])
+            self._datapath, 'raw/' + data_name + '.csv'), datetime_cols=['datetime'])
         self.plz_df = gpd.read_file(
             self._datapath + '/external/plz_bremen.geojson')
 
@@ -85,6 +91,7 @@ class Preprocessor:
                 'identification': ping['p_uid'],
                 'start_time': buffer['datetime'],
                 'end_time': ping['datetime'],
+                'weekend': (0 if (buffer['datetime'].weekday() < 5) else 1),
                 'duration_sec': (ping['datetime'] - buffer['datetime']).total_seconds(),
                 'start_lng': buffer['p_lng'],
                 'start_lat': buffer['p_lat'],
@@ -240,7 +247,7 @@ class Preprocessor:
 
         return df
 
-    def prepWeather(self, year=2019):
+    def prepWeather(self, year):
         path = os.path.join(self._datapath, 'external/')
 
         urls = {
@@ -378,18 +385,22 @@ class Preprocessor:
         data.drop(columns=["bike_type", "mm", "timestamp"], inplace=True)
         data.dropna(inplace=True)
 
-        # save to /data/processed/trips_weather.zip
-        io.save_df(data, 'trips_weather')
+        # save to /data/processed/dataset.csv
+        if (self._new):
+            io.save_df(data, 'new_dataset')
+        else:
+            io.save_df(data, 'dataset')
 
-    def _get_merged(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/trips_weather.csv'),
+    def _get_merged(self, new):
+        name = 'new_dataset' if new else 'dataset'
+        return io.read_file(path=os.path.join(self._datapath, 'processed/' + name + '.csv'),
                             datetime_cols=['start_time', 'end_time'])
 
     def run(self):
 
         self.clean_dataset()
         self.create_trips()
-        self.prepWeather(year=2019)
+        self.prepWeather(year=self._year)
         trips = self._get_trips()
         weather = self._get_weather()
         self.mergeWeatherTrips(trips, weather)
