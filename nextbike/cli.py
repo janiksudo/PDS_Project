@@ -13,9 +13,12 @@ def cli():
     pass
 
 
-@cli.command(short_help='Transforms raw nNextbike format to trips-indexed format.')
+@cli.command(short_help='Transforms raw Nextbike format to trips-indexed format.')
 @click.argument('filename', type=click.Path(), required=True)
-@click.option('-r', '--refresh', is_flag=True, default=False)
+@click.option('-r', '--refresh',
+              is_flag=True,
+              default=False,
+              help='If this flag is given, then intermediate datatsets are disregarded.')
 def transform(filename, refresh):
     """
     This command allows for transforming raw Nextbike data to a more human and machine-learning friendly format indexed by trips.

@@ -50,7 +50,8 @@ Usage: nextbike transform [OPTIONS] FILENAME
   data/raw/FILENAME -> data/preprocessed/FILENAME
 
 Options:
-  -r, --refresh
+  -r, --refresh  If this flag is given, then intermediate datatsets are
+                 disregarded.
 ```
 
 ### Training:
