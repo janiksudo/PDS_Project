@@ -6,26 +6,47 @@ import os
 import pandas as pd
 import requests
 from tqdm import tqdm
+from nextbike.io import get_data_path
 
 
 class Preprocessor:
 
     _cleaned = None
     _trips = []
-    _new = False
-    _year = 2019
+    _filename = ''
 
-    def __init__(self, data_path, new, year):
-        self._new = new
-        _year = year
-        data_name = 'new_data' if new else 'bremen'
-        self._datapath = data_path
+    def __init__(self, filename, refresh=False):
+        self._refresh = refresh
+        self._filename = filename
+        self._prettyfilename = filename.replace('.csv', '')
+        self._datapath = get_data_path()
         self._raw = io.read_file(path=os.path.join(
-            self._datapath, 'raw/' + data_name + '.csv'), datetime_cols=['datetime'])
+            self._datapath, 'raw/' + filename), datetime_cols=['datetime'])
         self.plz_df = gpd.read_file(
             self._datapath + '/external/plz_bremen.geojson')
 
+    def _intermediateexists(self, step):
+        try:
+            if step == 'weather':
+                path = os.path.join(self._datapath, 'external',
+                                    self._prettyfilename+'_' + step + '.gz')
+            elif step == 'final':
+                path = os.path.join(self._datapath, 'processed',
+                                    self._filename)
+            else:
+                path = os.path.join(self._datapath, 'processed',
+                                    self._prettyfilename+'_' + step + '.csv')
+            if os.path.isfile(path):
+                return True
+        except FileNotFoundError:
+            return False
+
     def clean_dataset(self):
+
+        if self._intermediateexists('cleaned') and not self._refresh:
+            print('An intermediate cleaned Dataset exists. Skipping...')
+            print('If you want to force re-run of preprocessing and transformation, provide the -r/--refresh option.\n')
+            return
 
         print('Cleaning data set...')
 
@@ -43,6 +64,7 @@ class Preprocessor:
               'device.')
         self._raw = gpd.GeoDataFrame(self._raw, geometry=gpd.points_from_xy(self._raw.p_lng.copy(),
                                                                             self._raw.p_lat.copy()))
+        self._raw.crs = "EPSG:4326"
 
         self._raw = gpd.sjoin(
             self._raw, self.plz_df[['geometry', 'plz']], how='left', op='within')
@@ -77,12 +99,12 @@ class Preprocessor:
         self._raw = self._raw.sort_values('datetime')
 
         # Save cleaned data set as csv in data/preprocessed.
-        io.save_df(self._raw, 'bremen_cleaned')
-        print('Cleaned data set saved in data/processed as bremen_cleaned.csv.')
-        print('Cleaning data sucessfully finished.')
+        print('Saving intermediate DataFrame in data/processed as {}_cleaned.csv.'.format(self._prettyfilename))
+        io.save_df(self._raw, self._prettyfilename+'_cleaned')
+        print('Cleaning data sucessfully finished.\n\n')
 
     def _get_cleaned(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/bremen_cleaned.csv'),
+        return io.read_file(path=os.path.join(self._datapath, 'processed/{}_cleaned.csv'.format(self._prettyfilename)),
                             datetime_cols=['datetime'])
 
     def _write_trip(self, ping, buffer):
@@ -106,6 +128,11 @@ class Preprocessor:
         self._trips.append(trip)
 
     def create_trips(self):
+
+        if self._intermediateexists('trips') and not self._refresh:
+            print('An intermediate Trips Dataset exists. Skipping...')
+            print('If you want to force re-run of preprocessing and transformation, provide the -r/--refresh option.\n')
+            return
 
         print('Creating Trips from cleaned bike pings...')
 
@@ -205,17 +232,17 @@ class Preprocessor:
         self._trips.fillna(0, inplace=True)
 
         # Save trips data set as csv in data/preprocessed.
-        io.save_df(self._trips, 'trips')
-        print('Trips data set saved in data/processed as trips.csv.')
-        print('Creating trips from data completed successfully.')
+        print('Saving intermediate DataFrame in data/processed as {}_trips.csv.'.format(self._prettyfilename))
+        io.save_df(self._trips, self._prettyfilename+'_trips')
+        print('Creating trips from data completed successfully.\n\n')
 
     def _get_trips(self):
-        return io.read_file(path=os.path.join(self._datapath, 'processed/trips.csv'),
+        return io.read_file(path=os.path.join(self._datapath, 'processed/{}_trips.csv'.format(self._prettyfilename)),
                             datetime_cols=['start_time', 'end_time'])
 
     def _saveDwdData(self, url, path, f_name):
 
-        print('Download ' + f_name + ' from ' + url + ' and save to ' + path)
+        # print('Download ' + f_name + ' from ' + url + ' and save to ' + path)
 
         file = requests.get(url)
         open(path + f_name, 'wb').write(file.content)
@@ -225,17 +252,15 @@ class Preprocessor:
 
         self._saveDwdData(url, path, f_name)
 
-        print()
-
         df = pd.read_csv(path + f_name, sep=';')
-        print('Created data frame of ' + f_name)
+        # print('Created data frame of ' + f_name)
 
         os.remove(path + f_name)
-        print('Zip file removed: ' + path + f_name)
+        # print('Zip file removed: ' + path + f_name)
 
         return df
 
-    def _filterForYear(self, df, year):
+    def _filterForYears(self, df):
 
         df.rename(columns={"MESS_DATUM": "timestamp"}, inplace=True)
 
@@ -243,11 +268,17 @@ class Preprocessor:
 
         df.set_index('timestamp', inplace=True)
 
-        df = df[df.index.year == year]
+        df = df[df.index.year >= 2018]
 
         return df
 
-    def prepWeather(self, year):
+    def prepWeather(self):
+
+        if self._intermediateexists('weather') and not self._refresh:
+            print('Weather data was already fetched for this dataset. Skipping...')
+            print('If you want to force re-run of preprocessing and transformation, provide the -r/--refresh option.\n')
+            return
+
         path = os.path.join(self._datapath, 'external/')
 
         urls = {
@@ -270,9 +301,9 @@ class Preprocessor:
         precipitation = self._getDwdData(
             urls['precipitation'], path, 'precipitation.zip')
 
-        print('Cleaning air_temp')
+        print('Cleaning air_temp...')
 
-        air_temp = self._filterForYear(air_temp, year)
+        air_temp = self._filterForYears(air_temp)
 
         # Drop unnecessary columns
         air_temp.drop(columns={'STATIONS_ID', '  QN',
@@ -286,9 +317,9 @@ class Preprocessor:
         air_temp.replace(-999, float('NaN'), inplace=True)
         air_temp.dropna(inplace=True)
 
-        print('Cleaning air_temp_extr')
+        print('Cleaning air_temp_extr...')
 
-        air_temp_extr = self._filterForYear(air_temp_extr, year)
+        air_temp_extr = self._filterForYears(air_temp_extr)
 
         # Drop unnecessary columns
         air_temp_extr.drop(
@@ -304,9 +335,9 @@ class Preprocessor:
         air_temp_extr.replace(-999, float('NaN'), inplace=True)
         air_temp_extr.dropna(inplace=True)
 
-        print('Cleaning wind')
+        print('Cleaning wind...')
 
-        wind = self._filterForYear(wind, year)
+        wind = self._filterForYears(wind)
 
         # Drop unnecessary columns
         wind.drop(columns={'STATIONS_ID', '  QN', 'eor'}, inplace=True)
@@ -318,9 +349,9 @@ class Preprocessor:
         wind.replace(-999, float('NaN'), inplace=True)
         wind.dropna(inplace=True)
 
-        print('Cleaning wind_extr')
+        print('Cleaning wind_extr...')
 
-        wind_extr = self._filterForYear(wind_extr, year)
+        wind_extr = self._filterForYears(wind_extr)
 
         # Drop unnecessary columns
         wind_extr.drop(columns={'STATIONS_ID', '  QN', 'eor'}, inplace=True)
@@ -332,9 +363,9 @@ class Preprocessor:
         wind_extr.replace(-999, float('NaN'), inplace=True)
         wind_extr.dropna(inplace=True)
 
-        print('Cleaning precipitation')
+        print('Cleaning precipitation...')
 
-        precipitation = self._filterForYear(precipitation, year)
+        precipitation = self._filterForYears(precipitation)
 
         # Drop unnecessary columns
         precipitation.drop(
@@ -357,19 +388,26 @@ class Preprocessor:
 
         all_weather = pd.merge(all_weather, precipitation, on='timestamp')
 
-        print(all_weather.where(all_weather == -999).count())
-
-        all_weather.to_csv(path + 'weather.gz', compression='gzip')
+        all_weather.to_csv(path + self._prettyfilename +
+                           '_weather.gz', compression='gzip')
 
         print('Getting and cleaning of weather data successful!')
-        print('Data saved as ' + path + 'weather.gz')
-        print('To import the data use the following command:')
-        print("pd.read_csv(path + 'external/weather.gz', index_col='timestamp')")
+        print('Weather Data saved as ' + path +
+              '{}_weather.gz'.format(self._prettyfilename))
+        print('\nTo import the data use the following command:')
+        print("pd.read_csv(path + 'external/{}_weather.gz', index_col='timestamp')".format(self._prettyfilename))
 
     def _get_weather(self):
-        return pd.read_csv(os.path.join(self._datapath, 'external/weather.gz'))
+        return pd.read_csv(os.path.join(self._datapath, 'external/{}_weather.gz'.format(self._prettyfilename)))
 
     def mergeWeatherTrips(self, trips, weather):
+
+        if self._intermediateexists('final') and not self._refresh:
+            print('A processed version of the dataset {} exists. Skipping...'.format(
+                self._filename))
+            print('If you want to force re-run of preprocessing and transformation, provide the -r/--refresh option.\n')
+            return
+
         weather['timestamp'] = pd.to_datetime(weather['timestamp'])
 
         # Floor start time to next 10 minutes so we can merge it with weather data
@@ -381,26 +419,18 @@ class Preprocessor:
                            right_on='timestamp', how='left')
         data.drop(columns=['sTime_floored'], inplace=True)
         print("Trip and weather data merged")
-        print("Clean data")
+        print("Clean data...")
         data.drop(columns=["bike_type", "mm", "timestamp"], inplace=True)
         data.dropna(inplace=True)
 
-        # save to /data/processed/dataset.csv
-        if (self._new):
-            io.save_df(data, 'new_dataset')
-        else:
-            io.save_df(data, 'dataset')
-
-    def _get_merged(self, new):
-        name = 'new_dataset' if new else 'dataset'
-        return io.read_file(path=os.path.join(self._datapath, 'processed/' + name + '.csv'),
-                            datetime_cols=['start_time', 'end_time'])
+        # save to /data/processed
+        io.save_df(data, self._filename)
+        print('Done with preprocessing and transformation!')
 
     def run(self):
-
         self.clean_dataset()
         self.create_trips()
-        self.prepWeather(year=self._year)
+        self.prepWeather()
         trips = self._get_trips()
         weather = self._get_weather()
         self.mergeWeatherTrips(trips, weather)
