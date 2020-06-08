@@ -7,9 +7,27 @@ import pandas as pd
 import geopandas as gpd
 from math import sin, cos, sqrt, atan2, radians
 from nextbike.io import get_data_path
+from tqdm import tqdm
 
 
 class Model:
+
+    _export_attributes = [
+        'bike',
+        'identification',
+        'start_time',
+        'end_time',
+        'weekend',
+        'duration_sec',
+        'start_lng',
+        'start_lat',
+        'end_lng',
+        'end_lat',
+        'start_place',
+        'end_place',
+        'start_plz',
+        'end_plz'
+    ]
 
     def __init__(self, filename):
         self._datapath = get_data_path()
@@ -23,6 +41,7 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
 
         print('Generating features...')
 
@@ -49,6 +68,9 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
+
+        print('Working on Direction -> University...')
 
         trips_direction["start_time"] = pd.to_datetime(
             trips_direction["start_time"])
@@ -61,7 +83,7 @@ class Model:
         hour = []
 
         # Iterrate through df and add features to feature lists
-        for index, row in trips_direction.iterrows():
+        for index, row in tqdm(trips_direction.iterrows(), total=len(trips_direction), desc='Calculating distances:'):
 
             dist_to_uni = self.distanceToUni(
                 row['start_lng'], row['start_lat'], row['end_lng'], row['end_lat'])
@@ -106,6 +128,9 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
+
+        print('Working on Direction -> Main Station...')
 
         trips_direction["start_time"] = pd.to_datetime(
             trips_direction["start_time"])
@@ -118,7 +143,7 @@ class Model:
         hour = []
 
         # Iterrate through df and add features to feature lists
-        for index, row in trips_direction.iterrows():
+        for index, row in tqdm(trips_direction.iterrows(), total=len(trips_direction), desc='Calculating distances:'):
 
             dist_to_main_station = self.distanceToMainStation(
                 row['start_lng'], row['start_lat'], row['end_lng'], row['end_lat'])
@@ -168,6 +193,7 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
 
         print('Generating features...')
 
@@ -218,6 +244,7 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
 
         print('Generating features...')
 
@@ -228,7 +255,12 @@ class Model:
         model = io.read_model("model_duration")
         trips_duration['prediction'] = model.predict(X)
 
-        io.save_prediction(trips_duration, 'duration_prediction')
+        # extend the usual export with additional features used in this prediction
+        export_attributes = self._export_attributes + \
+            ['max_mean_m/s', 'prediction']
+
+        io.save_prediction(
+            trips_duration[export_attributes], 'duration_prediction')
         print('Saved prediction for further evaluation.')
 
     # This function predicts for each trip in the data set new_data.csv if its direction is toward the university of Bremen.
@@ -240,20 +272,40 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
 
         trips_direction["start_time"] = pd.to_datetime(
             trips_direction["start_time"])
 
         print('Generating features...')
+
+        # Lists of target variables
+        to_uni = []
+        to_uni_bool = []
+
         # Lists of features
         hour = []
 
         # Iterrate through df and add features to feature lists
-        for index, row in trips_direction.iterrows():
+        for index, row in tqdm(trips_direction.iterrows(), total=len(trips_direction), desc='Calculating distances:'):
+
+            dist_to_uni = self.distanceToUni(
+                row['start_lng'], row['start_lat'], row['end_lng'], row['end_lat'])
 
             # Save datetime information
             hour.append(row['start_time'].hour)
 
+            # Save distances to corresponding list
+            to_uni.append(dist_to_uni)
+
+            if dist_to_uni < 0:
+                to_uni_bool.append(0)
+            else:
+                to_uni_bool.append(1)
+
+        # Add columns to df
+        trips_direction['to_uni'] = to_uni
+        trips_direction['to_uni_bool'] = to_uni_bool
         trips_direction['hour'] = hour
 
         print('Predicting if trips are in direction to uni.')
@@ -265,7 +317,13 @@ class Model:
         model = io.read_model("model_direction_uni")
         trips_direction['prediction_to_uni'] = model.predict(X)
 
-        io.save_prediction(trips_direction, 'direction_prediction_uni')
+        # extend the usual export with additional features used in this prediction
+        export_attributes = self._export_attributes + \
+            ['humidity_2m', 'dew_point_2m', 'max_mean_m/s',
+                'hour', 'prediction_to_uni']
+
+        io.save_prediction(
+            trips_direction[export_attributes], 'direction_prediction_uni')
         print('Saved prediction for further evaluation.')
 
     # This function predicts for each trip in the data set new_data.csv if its direction is toward the main station of Bremen.
@@ -277,17 +335,39 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
 
         trips_direction["start_time"] = pd.to_datetime(
             trips_direction["start_time"])
+
+        # Lists of target variables
+        to_main_station = []
+        to_main_station_bool = []
 
         # Lists of features
         hour = []
 
         # Iterrate through df and add features to feature lists
-        for index, row in trips_direction.iterrows():
+        for index, row in tqdm(trips_direction.iterrows(), total=len(trips_direction), desc='Calculating distances:'):
+
+            dist_to_main_station = self.distanceToMainStation(
+                row['start_lng'], row['start_lat'], row['end_lng'], row['end_lat'])
+
             # Save datetime information
             hour.append(row['start_time'].hour)
+
+            # Save distances to corresponding list
+            to_main_station.append(dist_to_main_station)
+
+            if dist_to_main_station < 0:
+                to_main_station_bool.append(0)
+            else:
+                to_main_station_bool.append(1)
+
+        # Add columns to df
+        trips_direction['to_main_station'] = to_main_station
+        trips_direction['to_main_station_bool'] = to_main_station_bool
+        trips_direction['hour'] = hour
 
         print('Predicting if trips are in direction to main station.')
         # Initialize independent and target variables
@@ -298,8 +378,13 @@ class Model:
         model = io.read_model("model_direction_main_station")
         trips_direction['prediction_to_main_station'] = model.predict(X)
 
+        # extend the usual export with additional features used in this prediction
+        export_attributes = self._export_attributes + \
+            ['humidity_2m', 'dew_point_2m', 'max_m/s',
+                'hour', 'prediction_to_main_station']
+
         io.save_prediction(
-            trips_direction, 'direction_prediction_main_station')
+            trips_direction[export_attributes], 'direction_prediction_main_station')
         print('Saved prediction for further evaluation.')
 
     def predict_demand(self, resolution):
@@ -310,6 +395,7 @@ class Model:
         except FileNotFoundError:
             print(
                 'The dataset data/processed/{} does not exist - please run preprocessing first.'.format(self._filename))
+            return
 
         for col in ['start_time']:
             trips_demand['month'] = pd.DatetimeIndex(
@@ -344,7 +430,8 @@ class Model:
 
         trips_demand['prediction_' + resolution] = model.predict(X_poly)
 
-        io.save_prediction(trips_demand, 'duration_prediction_' + resolution)
+        io.save_prediction(
+            trips_demand, 'demand_prediction_' + resolution)
 
         print('Saved prediction for further evaluation.')
 

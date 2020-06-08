@@ -279,6 +279,8 @@ class Preprocessor:
             print('If you want to force re-run of preprocessing and transformation, provide the -r/--refresh option.\n')
             return
 
+        print('Fetching and processing weather data from DWD...')
+
         path = os.path.join(self._datapath, 'external/')
 
         urls = {
