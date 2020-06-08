@@ -7,27 +7,31 @@ This package also implements various machine-learning models for different targe
 
 ## Installation
 ### Prerequisites:
+#### Preferred way using environment.yml:
+Install everything at once using `conda env create -f environment.yml` from the root directory of this project.
+This assumes an installation of (mini)conda.
+
+The environment then can (and must) be activated using `conda activate NextbikeENV`.
+
+#### Alternative way (manually):
 Prior to installing the package itself, please install it's one external dependency: `geopandas`.
 This can easily be done by executing the following (assuming you have activated your conda environment):
 ```conda install geopandas``` (https://geopandas.org/install.html)
 
-### Nextbike Package:
-Within the same folder as ```setup.py```run ```pip install .``` to install the package. 
-Use flag ```-e``` to install in development mode. 
-
-In subdirectory ```notebooks``` run ```pip install ..``` to install the package. 
-Import via ```import nextbike```.
-
-### Development Dependencies:
 Additional dependencies for Jupyter Notebooks in the `notebooks` folder are:
 
 ```folium``` - https://python-visualization.github.io/folium/installing.html or `conda install folium`
 
 ```h3``` - https://github.com/uber/h3-py#installation or `pip install h3`
 
-### Alternative using environment.yml:
-Install everything at once using `conda env create -f environment.yml` from the root directory of this project.
-This assumes an installation of (mini)conda.
+### Nextbike Package:
+After all prerequisites are installed using either the environment.yml or installing everything manually, then this package can be installed:
+
+Within the same folder as ```setup.py```run ```pip install .``` to install the package. 
+Use flag ```-e``` to install in development mode. 
+
+In subdirectory ```notebooks``` run ```pip install ..``` to install the package. 
+Import via ```import nextbike```.
 
 ## Usage
 The usual workflow is as follows:
@@ -121,6 +125,11 @@ Options:
 ```
 
 ### Caveats:
+
+#### "Error: no module named ..."
+Ensure the environment, where all dependencies have been installed, is activated (using `conda activate ENVNAME`).
+
+Ensure that in addition to the Nextbike package, all its dependencies are installed. (See [Installation - Prerequisites](#installation))
 
 #### pip vs pip3
 Please ensure that there is only Python 3 installed in your environment. Python 2 installations and bad aliases can cause pip installs to fail because pip links to python instead of python3.
