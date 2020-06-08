@@ -50,6 +50,8 @@ The usual workflow is as follows:
     
     **Prediction won't work without doing steps 1 and 2 first.**
     
+**Usage without Prediction:**
+
 If the user does not want to predict stuff, but rather only wants to use the transformation of raw Nextbike data to a more human-friendly format indexed by trips, step 1 provides an intermediate DataFrame named `FILENAME_trips.csv` under `/data/processed/`.
 
 ### Command-Line Interface
