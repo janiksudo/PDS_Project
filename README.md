@@ -47,6 +47,8 @@ The usual workflow is as follows:
 
         (Usage: `nextbike predict --uni direction` for a prediction wheter a trip is headed towards the University of Bremen)
     * The model `demand` takes the same additional parameter as with training.
+    
+    **Prediction won't work without doing steps 1 and 2 first.**
 
 ### Command-Line Interface
 This package implements a command line interface for the three main commands used during a typical workflow.
