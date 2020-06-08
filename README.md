@@ -20,6 +20,10 @@ Additional dependencies for Jupyter Notebooks in the `notebooks` folder are:
 
 ```h3``` - https://github.com/uber/h3-py#installation
 
+### Alternative using environment.yml:
+Install everything at once using `conda env create -f environment.yml` from the root directory of this project.
+This assumes an installation of (mini)conda.
+
 ## Usage
 This package implements a command line interface with three main commands:
 
