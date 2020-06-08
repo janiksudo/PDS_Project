@@ -15,7 +15,9 @@ Import via ```import nextbike```.
 
 ### Development Dependencies:
 Additional dependencies for Jupyter Notebooks in the `notebooks` folder are:
+
 ```folium``` - https://python-visualization.github.io/folium/installing.html
+
 ```h3``` - https://github.com/uber/h3-py#installation
 
 ## Usage
