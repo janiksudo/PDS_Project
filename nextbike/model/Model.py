@@ -257,7 +257,7 @@ class Model:
 
         # extend the usual export with additional features used in this prediction
         export_attributes = self._export_attributes + \
-            ['max_mean_m/s', 'prediction']
+            ['duration_min','max_mean_m/s', 'prediction']
 
         io.save_prediction(
             trips_duration[export_attributes], 'duration_prediction')
@@ -319,7 +319,7 @@ class Model:
 
         # extend the usual export with additional features used in this prediction
         export_attributes = self._export_attributes + \
-            ['humidity_2m', 'dew_point_2m', 'max_mean_m/s',
+            ['to_uni_bool','humidity_2m', 'dew_point_2m', 'max_mean_m/s',
                 'hour', 'prediction_to_uni']
 
         io.save_prediction(
@@ -380,7 +380,7 @@ class Model:
 
         # extend the usual export with additional features used in this prediction
         export_attributes = self._export_attributes + \
-            ['humidity_2m', 'dew_point_2m', 'max_m/s',
+            ['to_main_station_bool','humidity_2m', 'dew_point_2m', 'max_m/s',
                 'hour', 'prediction_to_main_station']
 
         io.save_prediction(
