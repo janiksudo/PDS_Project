@@ -31,9 +31,9 @@ This assumes an installation of (mini)conda.
 
 ## Usage
 The usual workflow is as follows:
-1. Transform both the training data (e.g. `bremen.csv`) and the unseen/new data (e.g. `bremen_test.csv`). These need to be in `/data/raw/`.
+1. **Transform** both the training data (e.g. `bremen.csv`) and the unseen/new data (e.g. `bremen_test.csv`). These need to be in `/data/raw/`.
 
-1. Train on the processed (now in `/data/processed/`) training data. (no need to specify filename)
+1. **Train** on the processed (now in `/data/processed/`) training data. (no need to specify filename)
     * Both the models `duration` and `direction`  do not need an additional parameter.
     * `demand` takes an additional parameter `--resolution` or short `-t` that specifies the temporal resolution, the model should be trained on. 
     
@@ -41,7 +41,7 @@ The usual workflow is as follows:
 
     **Training won't work without doing step 1 first.**
 
-1. Predict processed (now in `/data/processed/`) unseen/new data with a specified filename (e.g. `bremen_test.csv`)
+1. **Predict** processed (now in `/data/processed/`) unseen/new data with a specified filename (e.g. `bremen_test.csv`)
     * The model `duration` does not need an additional parameter.
     * The model `direction` requires a flag (either `--uni` or `--mainstation` to be set as an option) to know which direction to predict.
 
@@ -49,6 +49,8 @@ The usual workflow is as follows:
     * The model `demand` takes the same additional parameter as with training.
     
     **Prediction won't work without doing steps 1 and 2 first.**
+    
+If the user does not want to predict stuff, but rather only wants to use the transformation of raw Nextbike data to a more human-friendly format indexed by trips, step 1 provides an intermediate DataFrame named `FILENAME_trips.csv` under `/data/processed/`.
 
 ### Command-Line Interface
 This package implements a command line interface for the three main commands used during a typical workflow.
