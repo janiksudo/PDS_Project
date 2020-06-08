@@ -10,7 +10,7 @@ This can easily be done by executing the following (assuming you have activated 
 Within the same folder as ```setup.py```run ```pip install .``` to install the package. 
 Use flag ```-e``` to install in development mode. 
 
-In subdirectory ```notebooks``` run ```pip install ..``` to install the package. 
+In subdirectory ```notebooks``` run ```pip3 install ..``` to install the package. 
 Import via ```import nextbike```.
 
 ### Development Dependencies:
