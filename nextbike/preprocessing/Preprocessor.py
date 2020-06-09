@@ -188,6 +188,10 @@ class Preprocessor:
         self._trips = pd.DataFrame.from_records(self._trips)
         print('created', len(self._trips), 'trips.')
 
+        # Drop all trips with duration over 24h
+        self._trips = self._trips[self._trips['duration_sec'] < (24*60*60)]
+        print('Droped all trips with duration over 24h.')
+
         # Drop round trips - trips with no differences in both start/end lng and start/end lat that are not station-bound
         print('removing round trips that are obviously not real...')
         self._trips = self._trips[~((self._trips['start_lng'] == self._trips['end_lng']) &
@@ -278,6 +282,8 @@ class Preprocessor:
             print('Weather data was already fetched for this dataset. Skipping...')
             print('If you want to force re-run of preprocessing and transformation, provide the -r/--refresh option.\n')
             return
+
+        print('Fetching and processing weather data from DWD...')
 
         path = os.path.join(self._datapath, 'external/')
 
