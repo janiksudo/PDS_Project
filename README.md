@@ -20,6 +20,8 @@ This can easily be done by executing the following (assuming you have activated 
 
 Additional dependencies for Jupyter Notebooks in the `notebooks` folder are:
 
+```jupyter notebook``` - https://jupyter.org/install - or `conda install notebook`
+
 ```folium``` - https://python-visualization.github.io/folium/installing.html or `conda install folium`
 
 ```h3``` - https://github.com/uber/h3-py#installation or `pip install h3`
