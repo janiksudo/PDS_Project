@@ -1,0 +1,12 @@
+name: NextbikeENV
+channels:
+  - conda-forge
+dependencies:
+  - python=3.6
+  - notebook
+  - folium
+  - shapely
+  - geopandas=0.7.0
+  - seaborn
+  - statsmodels=0.8.0
+  - h3-py
